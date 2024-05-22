@@ -1,0 +1,32 @@
+<div class="grid grid-cols-12 gap-4 m-b-30">
+    <!-- Columna de 8 -->
+    <div class="col-span-12 lg:col-span-8">
+      <article class="group grid rounded-xl max-w-4xl grid-cols-1 md:grid-cols-8 overflow-hidden border border-slate-300 bg-slate-100 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+        <!-- Image -->
+        <div class="col-span-3 overflow-hidden">
+          <img src="/assets/images/profile/user-1.jpg" class="h-52 md:h-full w-" alt="a man wearing VR goggles" />
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col justify-center p-6 col-span-5">
+          <h3 class="text-balance text-xl font-bold text-black lg:text-3xl dark:text-white" aria-describedby="articleDescription">Tus rutinas propias</h3>
+          <h3 class="text-balance text-xl font-bold text-black lg:text-2xl dark:text-white" aria-describedby="articleDescription">Jose Luis Garcia Andreu</h3>
+          <p id="articleDescription" class="my-4 max-w-lg text-pretty text-lg">
+            <strong>Cantidad de rutinas creadas por ti:</strong> 10<br>
+            <strong>Cantidad de me gustas de tus rutinas:</strong> 120<br>
+            <strong>Tu rutina más gustada:</strong> Entrenamiento de fuerza avanzado
+          </p>
+        </div>
+      </article>
+    </div>
+    <!-- Columna de 4 -->
+    <div class="col-span-12 lg:col-span-4 flex items-center justify-center">
+      <div class="group relative rounded-xl overflow-hidden border border-slate-300 bg-slate-100 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 max-h-full">
+        <img src="/assets/images/resources/persona_ejercicio_gimnasio.jpg" class="h-full w-full object-cover max-h-full filter blur-sm transition duration-700 ease-out group-hover:scale-105" alt="extra image" />
+        <button class="absolute inset-0 flex items-center justify-center text-white text-8xl bg-black bg-opacity-40">
+          +
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <app-cards></app-cards>

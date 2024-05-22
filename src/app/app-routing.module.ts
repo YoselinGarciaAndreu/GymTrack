@@ -30,7 +30,11 @@ const routes: Routes = [
 
 
 
-
+      {
+        path: 'rutinas_guardadas',
+        loadChildren: () =>
+          import('./pages/rutinas-personales/rutinas-personales.module').then((m) => m.RutinaGuardadaModule),
+      },
     
       {
         path: 'ui-components',

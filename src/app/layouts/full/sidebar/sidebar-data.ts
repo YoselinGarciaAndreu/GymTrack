@@ -10,7 +10,13 @@ export const navItems: NavItem[] = [
     route: '/dashboard',
   },
   {
-    navCap: 'Estadisticas',
+    navCap: 'Personal',
+  },
+
+  {
+    displayName: 'Progreso fisico',
+    iconName: 'circle-letter-p',
+    route: '/pierna',
   },
   {
     navCap: 'Ejercicios',
@@ -43,8 +49,16 @@ export const navItems: NavItem[] = [
   {
     navCap: 'Rutinas',
   },
-
-
+  {
+    displayName: 'Mis rutinas',
+    iconName: 'bike',
+    route: '/rutinas_guardadas',
+  },
+  {
+    displayName: 'Rutinas guardadas',
+    iconName: 'circle-letter-p',
+    route: '/rutinas_guardadas',
+  },
 
   {
     navCap: 'Ui Components',
