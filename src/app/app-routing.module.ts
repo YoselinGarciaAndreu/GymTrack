@@ -29,7 +29,12 @@ const routes: Routes = [
       },
 
 
-
+      {
+        path: 'progreso_fisico',
+        loadChildren: () =>
+          import('./pages/progresoFisico/progresoFisico.module').then((m) => m.ProgresoFisicoModule),
+      },
+      
       {
         path: 'rutinas_guardadas',
         loadChildren: () =>

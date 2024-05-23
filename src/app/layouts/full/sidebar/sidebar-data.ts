@@ -16,7 +16,7 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Progreso fisico',
     iconName: 'circle-letter-p',
-    route: '/pierna',
+    route: '/progreso_fisico',
   },
   {
     navCap: 'Ejercicios',
@@ -50,15 +50,16 @@ export const navItems: NavItem[] = [
     navCap: 'Rutinas',
   },
   {
+    displayName: 'Rutinas',
+    iconName: 'circle-letter-p',
+    route: '/rutinas_guardadas',
+  },
+  {
     displayName: 'Mis rutinas',
     iconName: 'bike',
     route: '/rutinas_guardadas',
   },
-  {
-    displayName: 'Rutinas guardadas',
-    iconName: 'circle-letter-p',
-    route: '/rutinas_guardadas',
-  },
+  
 
   {
     navCap: 'Ui Components',
