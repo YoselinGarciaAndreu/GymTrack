@@ -1,0 +1,25 @@
+<div class="fixed inset-0 bg-gray-200 bg-opacity-1 flex items-center justify-center z-50" *ngIf="isOpen">
+  <div class="bg-white p-10 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden w-3/4 max-w-md">
+    <div class="p-6">
+      <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Información del ejercicio</h2>
+      <div class="mb-4">
+        <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Nombre del ejercicio:</h3>
+        <p class="mt-1 text-gray-900 dark:text-white">TEST NOMBRE</p>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Nombre del autor:</h3>
+        <p class="mt-1 text-gray-900 dark:text-white">TEST NOMBRE AUTOR</p>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Descripción del ejercicio:</h3>
+        <p class="mt-1 text-gray-900 dark:text-white">TEST DESCRIPCION</p>
+      </div>
+    </div>
+    <div class="flex justify-end px-6 py-4">
+      <button class="bg-gray-500 text-white px-4 py-2 rounded" (click)="closeModal()">Cerrar</button>
+      <button class="bg-primary text-white px-4 py-2 rounded ml-2" (click)="closeModal()">Añadir a una de mis rutinas</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,107 @@
+<div class="fixed inset-0 bg-gray-200 bg-opacity-30 flex items-center justify-center z-50" *ngIf="isOpen">
+    <!-- FONDO -->
+    <div class="bg-white p-10 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+      <div class="p-6">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Rellenar Pesos de las Series</h2>
+        <form>
+          <div class="mb-4">
+            <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Ejercicio 1</h3>
+            <div class="flex space-x-4">
+              <div>
+                <label for="serie1-ej1" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Serie 1</label>
+                <input type="number" id="serie1-ej1" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+              </div>
+              <div>
+                <label for="serie2-ej1" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Serie 2</label>
+                <input type="number" id="serie2-ej1" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+              </div>
+              <div>
+                <label for="serie3-ej1" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Serie 3</label>
+                <input type="number" id="serie3-ej1" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Ejercicio 2</h3>
+            <div class="flex space-x-4">
+              <div>
+                <label for="serie1-ej2" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Serie 1</label>
+                <input type="number" id="serie1-ej2" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+              </div>
+              <div>
+                <label for="serie2-ej2" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Serie 2</label>
+                <input type="number" id="serie2-ej2" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+              </div>
+              <div>
+                <label for="serie3-ej2" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Serie 3</label>
+                <input type="number" id="serie3-ej2" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Ejercicio 3</h3>
+            <div class="flex space-x-4">
+              <div>
+                <label for="serie1-ej3" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Serie 1</label>
+                <input type="number" id="serie1-ej3" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+              </div>
+              <div>
+                <label for="serie2-ej3" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Serie 2</label>
+                <input type="number" id="serie2-ej3" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+              </div>
+              <div>
+                <label for="serie3-ej3" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Serie 3</label>
+                <input type="number" id="serie3-ej3" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-start">
+            <button type="button" class="bg-primary text-white px-4 py-2 mb-4 rounded">Insertar entrenamiento</button>
+          </div>
+        </form>
+      </div>
+  
+      <div class="relative overflow-x-auto">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col" class="px-6 py-3">Product name</th>
+              <th scope="col" class="px-6 py-3">Serie 1</th>
+              <th scope="col" class="px-6 py-3">Serie 2</th>
+              <th scope="col" class="px-6 py-3">Serie 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                Ejercicio 1
+              </th>
+              <td class="px-6 py-4">Peso 1</td>
+              <td class="px-6 py-4">Peso 2</td>
+              <td class="px-6 py-4">Peso 3</td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                Ejercicio 2
+              </th>
+              <td class="px-6 py-4">Peso 1</td>
+              <td class="px-6 py-4">Peso 2</td>
+              <td class="px-6 py-4">Peso 3</td>
+            </tr>
+            <tr class="bg-white dark:bg-gray-800">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                Ejercicio 3
+              </th>
+              <td class="px-6 py-4">Peso 1</td>
+              <td class="px-6 py-4">Peso 2</td>
+              <td class="px-6 py-4">Peso 3</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="flex justify-start px-6 py-4">
+            <button class="bg-gray-500 text-white px-4 py-2 rounded" (click)="closeModal()">Cerrar</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  

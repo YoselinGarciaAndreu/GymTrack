@@ -10,6 +10,7 @@ import { PagesRoutes } from "../pages.routing.module";
 import { ProgresoFisicoComponent } from "./progresoFisico.component";
 import { CardsComponent } from "./progresoFisico-components/cards/cards.component";
 import { Search_barComponent } from "./progresoFisico-components/search_bar/search_bar.component";
+import { SalesOverviewChartComponent } from "./progresoFisico-components/salesOverviewChart/salesOverviewChart.component";
 
 
 
@@ -41,6 +42,7 @@ const routes: Routes = [
     ProgresoFisicoComponent,
     CardsComponent,
     Search_barComponent,
+    SalesOverviewChartComponent
   ],
 })
 //RUTA COMPRAS

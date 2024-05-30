@@ -28,6 +28,30 @@ const routes: Routes = [
           import('./pages/pierna/pierna.module').then((m) => m.PiernaModule),
       },
 
+      {
+        path: 'torso',
+        loadChildren: () =>
+          import('./pages/torso/torso.module').then((m) => m.TorsoModule),
+      },
+
+      {
+        path: 'espalda',
+        loadChildren: () =>
+          import('./pages/espalda/espalda.module').then((m) => m.EspaldaModule),
+      },
+
+      {
+        path: 'cardio',
+        loadChildren: () =>
+          import('./pages/cardio/cardio.module').then((m) => m.CardioModule),
+      },
+
+      {
+        path: 'brazos',
+        loadChildren: () =>
+          import('./pages/brazos/brazos.module').then((m) => m.BrazosModule),
+      },
+
 
       {
         path: 'progreso_fisico',
@@ -39,6 +63,11 @@ const routes: Routes = [
         path: 'rutinas_guardadas',
         loadChildren: () =>
           import('./pages/rutinas-personales/rutinas-personales.module').then((m) => m.RutinaGuardadaModule),
+      },
+      {
+        path: 'ejercicios_guardados',
+        loadChildren: () =>
+          import('./pages/ejercicios-personales/ejercicios-personales.module').then((m) => m.EjercicioGuardadoModule),
       },
     
       {

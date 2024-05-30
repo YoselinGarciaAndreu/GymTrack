@@ -22,6 +22,11 @@ export const navItems: NavItem[] = [
     navCap: 'Ejercicios',
   },
   {
+    displayName: 'Mis ejercicios',
+    iconName: 'bike',
+    route: '/ejercicios_guardados',
+  },
+  {
     displayName: 'Piernas',
     iconName: 'circle-letter-p',
     route: '/pierna',
@@ -29,36 +34,37 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Brazos',
     iconName: 'circle-letter-b',
-    route: '/ui-components/badge',
+    route: '/brazos',
   },
   {
     displayName: 'Torso',
     iconName: 'circle-letter-t',
-    route: '/ui-components/badge',
+    route: '/torso',
   },
   {
     displayName: 'Espalda',
     iconName: 'circle-letter-e',
-    route: '/ui-components/badge',
+    route: '/espalda',
   },
   {
     displayName: 'Cardio',
     iconName: 'bike',
-    route: '/ui-components/badge',
+    route: '/cardio',
   },
   {
     navCap: 'Rutinas',
-  },
-  {
-    displayName: 'Rutinas',
-    iconName: 'circle-letter-p',
-    route: '/rutinas_guardadas',
   },
   {
     displayName: 'Mis rutinas',
     iconName: 'bike',
     route: '/rutinas_guardadas',
   },
+  {
+    displayName: 'Rutinas',
+    iconName: 'circle-letter-p',
+    route: '/rutinas',
+  },
+
   
 
   {

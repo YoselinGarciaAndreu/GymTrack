@@ -26,20 +26,21 @@
           {{card.title}}
         </mat-card-title>
         <div class="d-flex align-items-center justify-content-between mt-2">
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center ">
            
-            <a
-    mat-flat-button
-    color="primary"
-    href=""
-    class="d-flex justify-content-center mr-1"
-  >
-    Informacion
-  </a>
+
+            <!-- Boton modal -->
+          <button (click)="openModal()" mat-flat-button color="primary" href="" class="d-flex justify-content-center mr-1">
+           Registrar entrenamiento 
+            </button>
+            <app-ejercicio-info [isOpen]="isModalOpen" (close)="closeModal()"></app-ejercicio-info>
+
+
+
           </div>
           
     
-          <div class="m-l-auto d-flex gap-4">
+          <!-- <div class="m-l-auto d-flex gap-4">
           <a href="">
             <span class="flex items-center">
               <i-tabler name="thumb-up">
@@ -59,7 +60,9 @@
             </a>
           </span>
           </a>
-          </div>
+          </div> -->
+
+
         </div>
       </mat-card-content>
     </mat-card>

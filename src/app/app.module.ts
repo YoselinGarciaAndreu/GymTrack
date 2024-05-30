@@ -35,6 +35,7 @@ import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.co
     AppNavItemComponent,
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

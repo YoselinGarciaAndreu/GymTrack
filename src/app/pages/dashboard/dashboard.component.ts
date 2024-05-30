@@ -223,7 +223,7 @@ export class AppDashboardComponent {
         {
           name: 'Masa muscular',
           data: [30, 31, 31, 32, 33, 34, 34.5, 35],
-          color: '#5D87FF',
+          color: '#5d87ff',
         },
         {
           name: 'Grasa corporal',
@@ -320,7 +320,7 @@ export class AppDashboardComponent {
         },
         height: 130,
       },
-      colors: ['#5D87FF', '#ECF2FF', '#F9F9FD'],
+      colors: ['#5d87ff', '#ECF2FF', '#F9F9FD'],
       plotOptions: {
         pie: {
           startAngle: 0,
