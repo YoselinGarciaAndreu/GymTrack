@@ -1,6 +1,6 @@
 // src/app/pages/pierna/pierna-components/cards/cards.component.ts
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Ejercicio } from 'src/app/models/ejercicio.model';
 import { EjerciciosService } from 'src/app/services/ejercicios/ejercicios.service';
 
@@ -11,6 +11,7 @@ import { EjerciciosService } from 'src/app/services/ejercicios/ejercicios.servic
 export class CardsComponent implements OnInit {
 
   cards: Ejercicio[] = [];
+  @Input() card: any;
   isModalOpen = false;
   defaultImage: string = './assets/images/products/sentadilla2.jpg'; // Imagen por defecto
 
@@ -21,11 +22,19 @@ export class CardsComponent implements OnInit {
   }
 
   getEjerciciosDePierna(): void {
-    this.ejerciciosService.getEjerciciosByTipo('Pierna').subscribe((data: Ejercicio[]) => {
-      this.cards = data;
-      console.log(this.cards); // Para depuración
-    }, error => {
-      console.error('Error fetching exercises', error); // Para depuración
+    // this.ejerciciosService.getEjerciciosByTipo('Pierna').subscribe((data: Ejercicio[]) => {
+    //   this.cards = data;
+    //   console.log(this.cards); // Para depuración
+    // }, error => {
+    //   console.error('Error fetching exercises', error); // Para depuración
+    // });
+    this.ejerciciosService.getEjerciciosByTipo("Pierna").subscribe({
+      next: (data) => {
+        this.cards = data;
+      },
+      error: (error) => {
+        console.log(error);
+      },
     });
   }
 

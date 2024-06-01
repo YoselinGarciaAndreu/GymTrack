@@ -26,7 +26,7 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.scss",
-              "src/assets/scss/style.scss",
+              "src/assets/scss/style.scss"
             ],
             "scripts": []
           },
@@ -62,6 +62,8 @@
           "configurations": {
             "production": {
               "browserTarget": "Modernize:build:production"
+
+
             },
             "development": {
               "browserTarget": "Modernize:build:development"

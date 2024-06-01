@@ -81,7 +81,7 @@
           mat-mini-fab
           color="primary"
           class="icon-30 cart-btn"
-          matTooltip="Add to Cart">
+          matTooltip="Añadir a una rutina">
           <i-tabler name="device-floppy" class="icon-16"></i-tabler>
         </button>
 
@@ -89,19 +89,15 @@
           {{card.nombre}}
         </mat-card-title>
 
-
-
-
-
         <div class="d-flex align-items-center justify-content-between mt-2">
 
           <div class="d-flex align-items-center">
             <button (click)="openModal()" mat-flat-button color="primary" href="" class="d-flex justify-content-center mr-1">
               Informacion
             </button>
-            <app-ejercicio-info [isOpen]="isModalOpen" (close)="closeModal()"></app-ejercicio-info>
+            <app-ejercicio-info [isOpen]="isModalOpen" [nombre]="card.nombre" [descripcion]="card.descripcion"  (close)="closeModal()"></app-ejercicio-info>
           </div>
-          
+          <!-- [nombreUsuario]="card.usuario.nombreUsuario" -->
           <div class="m-l-auto d-flex gap-4">
             <a href="">
               <span class="flex items-center">

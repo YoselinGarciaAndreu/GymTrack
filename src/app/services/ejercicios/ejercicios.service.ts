@@ -13,7 +13,7 @@ export class EjerciciosService {
   constructor(private http: HttpClient) { }
 
   getEjercicios(): Observable<Ejercicio[]> {
-    return this.http.get<Ejercicio[]>(`${this.apiUrl}`);
+    return this.http.get<Ejercicio[]>(`${this.apiUrl}/getEjercicios`);
   }
 
   getEjerciciosByTipo(tipo: string): Observable<Ejercicio[]> {
@@ -22,7 +22,7 @@ export class EjerciciosService {
 
 
   saveEjercicio(ejercicio: Ejercicio): Observable<Ejercicio> {
-    return this.http.post<Ejercicio>(this.apiUrl, ejercicio);
+    return this.http.post<Ejercicio>(`${this.apiUrl}/saveEjercicios`, ejercicio);
   }
 
 

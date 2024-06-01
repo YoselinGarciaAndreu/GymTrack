@@ -13,10 +13,21 @@ export const navItems: NavItem[] = [
     navCap: 'Personal',
   },
 
+
   {
     displayName: 'Progreso fisico',
     iconName: 'circle-letter-p',
     route: '/progreso_fisico',
+  },
+  {
+    displayName: 'Mis rutinas',
+    iconName: 'bike',
+    route: '/rutinas_guardadas',
+  },
+  {
+    displayName: 'Mis ejercicios',
+    iconName: 'bike',
+    route: '/ejercicios_guardados',
   },
   {
     navCap: 'Ejercicios',
@@ -54,17 +65,17 @@ export const navItems: NavItem[] = [
   {
     navCap: 'Rutinas',
   },
-  {
-    displayName: 'Mis rutinas',
-    iconName: 'bike',
-    route: '/rutinas_guardadas',
-  },
+
   {
     displayName: 'Rutinas',
     iconName: 'circle-letter-p',
     route: '/rutinas',
   },
-
+  {
+    displayName: 'Mis rutinas',
+    iconName: 'bike',
+    route: '/rutinas_guardadas',
+  },
   
 
   {

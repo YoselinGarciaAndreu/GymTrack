@@ -19,9 +19,37 @@ const routes: Routes = [
           import('./pages/pages.module').then((m) => m.PagesModule),
       },
 
+      {
+        path: 'progreso_fisico',
+        loadChildren: () =>
+          import('./pages/progresoFisico/progresoFisico.module').then((m) => m.ProgresoFisicoModule),
+      },
+      
+      {
+        path: 'rutinas_guardadas',
+        loadChildren: () =>
+          import('./pages/rutinas-personales/rutinas-personales.module').then((m) => m.RutinaGuardadaModule),
+      },
+      {
+        path: 'ejercicios_guardados',
+        loadChildren: () =>
+          import('./pages/ejercicios-personales/ejercicios-personales.module').then((m) => m.EjercicioGuardadoModule),
+      },
+    
+      {
+        path: 'ui-components',
+        loadChildren: () =>
+          import('./pages/ui-components/ui-components.module').then(
+            (m) => m.UicomponentsModule
+          ),
+      },
+      {
+        path: 'extra',
+        loadChildren: () =>
+          import('./pages/extra/extra.module').then((m) => m.ExtraModule),
+      },
 
 
-//RUTA PIERNA
       {
         path: 'pierna',
         loadChildren: () =>
@@ -53,35 +81,6 @@ const routes: Routes = [
       },
 
 
-      {
-        path: 'progreso_fisico',
-        loadChildren: () =>
-          import('./pages/progresoFisico/progresoFisico.module').then((m) => m.ProgresoFisicoModule),
-      },
-      
-      {
-        path: 'rutinas_guardadas',
-        loadChildren: () =>
-          import('./pages/rutinas-personales/rutinas-personales.module').then((m) => m.RutinaGuardadaModule),
-      },
-      {
-        path: 'ejercicios_guardados',
-        loadChildren: () =>
-          import('./pages/ejercicios-personales/ejercicios-personales.module').then((m) => m.EjercicioGuardadoModule),
-      },
-    
-      {
-        path: 'ui-components',
-        loadChildren: () =>
-          import('./pages/ui-components/ui-components.module').then(
-            (m) => m.UicomponentsModule
-          ),
-      },
-      {
-        path: 'extra',
-        loadChildren: () =>
-          import('./pages/extra/extra.module').then((m) => m.ExtraModule),
-      },
     ],
   },
   {

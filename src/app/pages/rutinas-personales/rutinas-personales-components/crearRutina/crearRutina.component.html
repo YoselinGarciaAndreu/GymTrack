@@ -1,18 +1,18 @@
 <div class="fixed inset-0 bg-gray-200 bg-opacity-65 flex items-center justify-center z-50" *ngIf="isOpen">
   <div class="bg-white p-10 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden w-3/4 max-w-md">
     <div class="p-6">
-      <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Añadir nuevo ejercicio</h2>
-      <form (submit)="saveEjercicio()">
+      <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Añadir nueva rutina</h2>
+      <form (submit)="saveRutina()">
         <div class="mb-4">
-          <label for="nombre" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Nombre del ejercicio:</label>
-          <input id="nombre" type="text" class="mt-1 block w-full p-2 border border-gray-300 rounded"  name="nombre" [(ngModel)]="ejercicioComponent.nombre" required>
+          <label for="nombre" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Nombre de la rutina:</label>
+          <input id="nombre" type="text" class="mt-1 block w-full p-2 border border-gray-300 rounded"  name="nombre" [(ngModel)]="rutinaComponent.nombre" required>
         </div>
 
         <div class="mb-4">
-          <label for="descripcion" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Descripción del ejercicio:</label>
-          <textarea id="descripcion" class="mt-1 block w-full p-2 border border-gray-300 rounded"  name="descripcion" [(ngModel)]="ejercicioComponent.descripcion" required></textarea>
+          <label for="descripcion" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Descripción de la rutina:</label>
+          <textarea id="descripcion" class="mt-1 block w-full p-2 border border-gray-300 rounded"  name="descripcion" [(ngModel)]="rutinaComponent.descripcion" required></textarea>
         </div>
-
+<!-- 
         <div class="mb-4">
           <label for="tipo" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Tipo de ejercicio:</label>
           <select id="tipo" class="mt-1 block w-full p-2 border border-gray-300 rounded" name="tipo" [(ngModel)]="ejercicioComponent.tipo" required>
@@ -22,7 +22,7 @@
             <option value="Espalda">Espalda</option>
             <option value="Cardio">Cardio</option>
           </select>
-        </div>
+        </div> -->
 
         <div class="mb-4">
           <label for="imagen" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Subir imagen:</label>
@@ -31,11 +31,11 @@
 
         <div class="flex justify-end px-6 py-4">
           <button type="button" class="bg-gray-500 text-white px-4 py-2 rounded" (click)="closeModal()">Cerrar</button>
-          <button type="submit" class="bg-primary text-white px-4 py-2 rounded ml-2">Guardar</button>
-          
+          <button type="submit" class="bg-primary text-white px-4 py-2 rounded ml-2">Crear</button>
         </div>
+
         <div>
-          {{ejercicioComponent | json}}
+          {{rutinaComponent | json}}
         </div>
 
       </form>
