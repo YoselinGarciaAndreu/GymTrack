@@ -1,10 +1,10 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-ejercicio-info',
-  templateUrl: './ejercicioInfo.component.html'
+  selector: 'app-editar-rutina',
+  templateUrl: './editarRutina.component.html'
 })
-export class EjercicioInfoComponent {
+export class EditarRutinaComponent {
   @Input() isOpen = false;
 
   @Output() close = new EventEmitter<void>();

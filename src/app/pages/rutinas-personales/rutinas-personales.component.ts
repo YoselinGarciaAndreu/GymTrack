@@ -1,4 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { Usuario } from 'src/app/models/usuario.model';
 //declare var require: any;
 
 @Component({
@@ -6,15 +7,15 @@ import { Component, AfterViewInit } from '@angular/core';
 })
 
 export class RutinaGuardadaComponent implements AfterViewInit {
-  subtitle: string;
 
   isModalOpen = false;
 
 
   constructor() {
-    this.subtitle = 'This is some text within a card block.';
   }
 
+
+ 
   ngAfterViewInit() { }
 
 

@@ -8,10 +8,11 @@ import { TablerIconsModule } from "angular-tabler-icons";
 import { MaterialModule } from "src/app/material.module";
 import { PagesRoutes } from "../pages.routing.module";
 import { RutinaGuardadaComponent } from "./rutinas-personales.component";
-import { CardsComponent } from "./rutinas-personales-components/cards/cards.component";
 import { Search_barComponent } from "./rutinas-personales-components/search_bar/search_bar.component";
-import { EjercicioInfoComponent } from "./rutinas-personales-components/ejercicioInfo/ejercicioInfo.component";
 import { CrearRutinaComponent } from "./rutinas-personales-components/crearRutina/crearRutina.component";
+import { EditarRutinaComponent } from "./rutinas-personales-components/editarRutina/editarRutina.component";
+import { EjercicioInfoComponent } from "./rutinas-personales-components/ejercicioInfo/ejercicioInfo.component";
+import { CardsComponent } from "./rutinas-personales-components/cards/cards.component";
 
 
 
@@ -44,7 +45,8 @@ const routes: Routes = [
     CardsComponent,
     Search_barComponent,
     EjercicioInfoComponent,
-    CrearRutinaComponent
+    CrearRutinaComponent,
+    EditarRutinaComponent
 
   ],
 })

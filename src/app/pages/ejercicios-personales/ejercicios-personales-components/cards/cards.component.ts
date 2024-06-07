@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {card,cards} from './cards-data';
+// src/app/pages/pierna/pierna-components/cards/cards.component.ts
+
+import { Component, Input, OnInit } from '@angular/core';
+import { Ejercicio } from 'src/app/models/ejercicio.model';
+import { EjerciciosService } from 'src/app/services/ejercicios/ejercicios.service';
 
 @Component({
   selector: 'app-cards',
@@ -7,22 +10,45 @@ import {card,cards} from './cards-data';
 })
 export class CardsComponent implements OnInit {
 
-  cards:card[];
-  isModalOpen = false;
-  constructor() { 
+  cards: Ejercicio[] = [];
+  @Input() card: any;
+  defaultImage: string = './assets/images/products/sentadilla2.jpg'; 
 
-    this.cards=cards;
-  }
+
+  constructor(private ejerciciosService: EjerciciosService) { }
+  isModalOpenArray: boolean[] = [];
+  isModalSaveOpenArray: boolean[] = [];
+
 
   ngOnInit(): void {
+    this.getEjerciciosDni();
+
+  }
+  getEjerciciosDni(): void {
+    this.ejerciciosService.getEjerciciosByDni("03161512R").subscribe({
+      next: (data) => {
+        this.cards = data;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 
-  openModal(): void {
-    this.isModalOpen = true;
+  openModal(index: number): void {
+    this.isModalOpenArray[index] = true;
   }
 
-  closeModal(): void {
-    this.isModalOpen = false;
+  closeModal(index: number): void {
+    this.isModalOpenArray[index] = false;
   }
 
+
+  openModalSave(index: number): void {
+    this.isModalSaveOpenArray[index] = true;
+  }
+
+  closeModalSave(index: number): void {
+    this.isModalSaveOpenArray[index] = false;
+  }
 }

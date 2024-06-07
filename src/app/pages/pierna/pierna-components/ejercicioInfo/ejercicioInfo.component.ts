@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Usuario } from 'src/app/models/usuario.model';
 
 @Component({
   selector: 'app-ejercicio-info',
@@ -15,3 +16,6 @@ export class EjercicioInfoComponent {
     this.close.emit();
   }
 }
+
+
+

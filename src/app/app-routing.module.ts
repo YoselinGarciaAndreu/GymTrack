@@ -80,6 +80,12 @@ const routes: Routes = [
           import('./pages/brazos/brazos.module').then((m) => m.BrazosModule),
       },
 
+      {
+        path: 'rutinas',
+        loadChildren: () =>
+          import('./pages/rutinas/rutinas.module').then((m) => m.RutinasModule),
+      },
+
 
     ],
   },

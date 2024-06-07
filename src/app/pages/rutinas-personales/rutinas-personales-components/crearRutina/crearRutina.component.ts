@@ -14,6 +14,15 @@ export class CrearRutinaComponent {
   @Input() isOpen = false;
   @Output() close = new EventEmitter<void>();
 
+
+  usuario={
+    dni : "03161512R",
+    nombreUsuario: "Yoselin" ,
+    nombreApellidos: "Jose Luis Garcia Andreu", 
+    correo :"jocefuo@gmail.com",
+    edad :19,
+  }
+
   rutinaComponent={
     rutinaID : 0,
     nombre : "",
@@ -21,6 +30,7 @@ export class CrearRutinaComponent {
     imagenRutina : "",
     likes : 0,
     dislikes : 0,
+    dni : this.usuario
   }
   constructor(private rutinasService: RutinasService) {}
 
@@ -36,6 +46,7 @@ export class CrearRutinaComponent {
         console.log(error);
       },
     });
+
   }
   
   closeModal() {

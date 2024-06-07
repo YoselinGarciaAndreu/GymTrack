@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Ejercicio } from 'src/app/models/ejercicio.model';
-import { Usuario } from 'src/app/models/usuario.model';
+
 import { EjerciciosService } from 'src/app/services/ejercicios/ejercicios.service';
 
 @Component({
@@ -19,9 +18,6 @@ export class CrearEjercicioComponent {
     nombreApellidos: "Jose Luis Garcia Andreu", 
     correo :"jocefuo@gmail.com",
     edad :19,
-    peso :64,
-    masaMuscular :28,
-    grasaCorporal :21,
   }
 
   ejercicioComponent={
@@ -37,19 +33,7 @@ export class CrearEjercicioComponent {
 
   saveEjercicio(){
 
-    console.log(this.ejercicioComponent)
-
-    // var ejercicio: Ejercicio = {
-    //   id_ejercicio: 4,
-    //   descripcion: this.descripcion,
-    //   nombre: this.nombre,
-    //   tipo: this.tipo,
-    //   likes: 0,
-    //   disLikes: 0,
-    //   dni: '03161512R' 
-    // }
-
-   
+    console.log(this.ejercicioComponent)  
     
     this.ejerciciosService.saveEjercicio(this.ejercicioComponent).subscribe({
 

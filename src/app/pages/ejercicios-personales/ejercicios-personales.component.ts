@@ -5,11 +5,9 @@ import { Component, AfterViewInit } from '@angular/core';
   templateUrl: './ejercicios-personales.component.html'
 })
 export class EjercicioGuardadoComponent implements AfterViewInit {
-  subtitle: string;
   
   isModalOpen = false;
   constructor() {
-    this.subtitle = 'This is some text within a card block.';
   }
 
   ngAfterViewInit() { }

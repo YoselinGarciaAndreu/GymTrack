@@ -8,7 +8,7 @@ import { Ejercicio } from '../../models/ejercicio.model';
 })
 export class EjerciciosService {
 
-  private apiUrl = 'http://localhost:8080/ejercicios';  // Ajusta la URL de tu API
+  private apiUrl = 'http://localhost:8080/ejercicios';  
 
   constructor(private http: HttpClient) { }
 
@@ -20,6 +20,22 @@ export class EjerciciosService {
     return this.http.get<Ejercicio[]>(`${this.apiUrl}/tipo?tipo=${tipo}`);
   }
 
+  getEjerciciosByRutina(rutinaId?: number): Observable<Ejercicio[]> {
+    return this.http.get<Ejercicio[]>(`${this.apiUrl}/byRutina?rutinaId=${rutinaId}`);
+  }
+
+  getEjerciciosByDni(dni: string): Observable<Ejercicio[]> {
+    return this.http.get<Ejercicio[]>(`${this.apiUrl}/dni?dni=${dni}`);
+  }
+
+  getEjerciciosByNombreBusqueda(nombre: string): Observable<Ejercicio[]> {
+    return this.http.get<Ejercicio[]>(`${this.apiUrl}/nombreSearch?nombre=${nombre}`);
+  }
+
+  getEjerciciosByNombreBusquedaByTipo(nombre: string, tipo: string): Observable<Ejercicio[]> {
+    return this.http.get<Ejercicio[]>(`${this.apiUrl}/nombreSearchTipo?nombre=${nombre}&tipo=${tipo}`);
+  }
+
 
   saveEjercicio(ejercicio: Ejercicio): Observable<Ejercicio> {
     return this.http.post<Ejercicio>(`${this.apiUrl}/saveEjercicios`, ejercicio);
@@ -27,3 +43,8 @@ export class EjerciciosService {
 
 
 }
+
+
+
+
+

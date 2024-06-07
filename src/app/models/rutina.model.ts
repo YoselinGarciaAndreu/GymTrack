@@ -7,4 +7,5 @@ export interface Rutina {
   imagenRutina? : String,
   likes? : number,
   dislikes? : number,
+  dni? : Usuario,
 }

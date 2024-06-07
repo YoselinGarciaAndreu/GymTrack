@@ -1,20 +1,7 @@
 
-<!-- src/app/pages/pierna/pierna-components/cards/cards.component.html -->
 
 <div class="row">
-  <div class="col-sm-6 col-lg-3" *ngFor="let card of cards; let i = index" >
-
-    <!-- TEST BUSQUEDA -->
-    <!-- <button
-    (click)="getEjerciciosDePiernaBusqueda()"
-     mat-mini-fab
-     color="primary"
-     class="icon-30 cart-btn"
-     matTooltip="Añadir a una rutina">
-     <i-tabler name="device-floppy" class="icon-16"></i-tabler>
-   </button> -->
-
-
+  <div class="col-sm-6 col-lg-3" *ngFor="let card of cards; let i = index">
     <mat-card class="cardWithShadow productcard overflow-hidden">
       <a routerLink="/widgets/cards">
         <img 
@@ -25,8 +12,6 @@
         />
       </a>
       <mat-card-content class="p-b-24 p-t-12 position-relative">
-
-        
         <button
           mat-mini-fab
           color="primary"
@@ -34,11 +19,6 @@
           matTooltip="Añadir a una rutina">
           <i-tabler name="device-floppy" class="icon-16"></i-tabler>
         </button>
-        <!-- <app-ejercicio-add-rutina 
-        [isOpen]="isModalSaveOpenArray[i]" [nombre]="card.nombre" [descripcion]="card.descripcion" (close)="closeModalSave(i)">
-        </app-ejercicio-add-rutina> -->
-
-
 
         <mat-card-title class="mat-headline-2 f-s-16 m-b-4">
           {{card.nombre}}
@@ -47,12 +27,12 @@
         <div class="d-flex align-items-center justify-content-between mt-2">
 
           <div class="d-flex align-items-center">
-            <button mat-flat-button color="primary" href="" class="d-flex justify-content-center mr-1">
+            <button  (click)="openModal(i)" mat-flat-button color="primary" href="" class="d-flex justify-content-center mr-1">
               Informacion
             </button>
-            <!-- <app-ejercicio-info [isOpen]="isModalOpenArray[i]" [nombre]="card.nombre" [descripcion]="card.descripcion" (close)="closeModal(i)"></app-ejercicio-info> -->
+            <app-ejercicio-info [isOpen]="isModalOpenArray[i]" [nombre]="card.nombre" [descripcion]="card.descripcion" [rutina] = "card" (close)="closeModal(i)"></app-ejercicio-info>
           </div>
-          
+          <!-- [nombreUsuario]="card.usuario.nombreUsuario" -->
           <div class="m-l-auto d-flex gap-4">
             <a href="">
               <span class="flex items-center">
@@ -63,7 +43,6 @@
               </span>
             </a>
           </div>
-
           <div class="m-l-auto d-flex gap-4">
             <a href="">
               <span class="flex items-center">
@@ -74,7 +53,6 @@
               </span>
             </a>
           </div>
-
 
         </div>
       </mat-card-content>

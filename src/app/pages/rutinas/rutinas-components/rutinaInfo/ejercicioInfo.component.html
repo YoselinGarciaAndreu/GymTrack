@@ -1,0 +1,88 @@
+<!-- <div class="fixed inset-0 bg-gray-200 bg-opacity-0 flex items-center justify-center z-50" *ngIf="isOpen">
+  <div class="bg-white p-10 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden w-3/4 max-w-md">
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Nombre del ejercicio:</h3>
+      <p class="mt-1 text-gray-900 dark:text-white">{{ nombre }}</p>
+    </div>
+    
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Nombre del autor:</h3>
+      <p class="mt-1 text-gray-900 dark:text-white">{{ nombreUsuario }}</p>
+    </div>
+    
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Descripción del ejercicio:</h3>
+      <p class="mt-1 text-gray-900 dark:text-white">{{ descripcion }}</p>
+    </div>
+
+
+    <div class="flex justify-end px-6 py-4">
+      <button class="bg-gray-500 text-white px-4 py-2 rounded" (click)="closeModal()">Cerrar</button>
+      <button class="bg-primary text-white px-4 py-2 rounded ml-2" (click)="closeModal()">Añadir a una de mis rutinas</button>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+<div class="fixed inset-0 bg-gray-200 bg-opacity-30 flex items-center justify-center z-50" *ngIf="isOpen">
+  <!-- FONDO -->
+  <div class="bg-white p-10 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden max-w-lg w-full">
+
+    <!-- INFO RUTINA -->
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Nombre de la rutina:</h3>
+      <p class="mt-1 text-gray-900 dark:text-white">{{ nombre }}</p>
+    </div>
+
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Nombre del autor:</h3>
+      <p class="mt-1 text-gray-900 dark:text-white">{{ nombreUsuario }}</p>
+    </div>
+
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Descripción del ejercicio:</h3>
+      <p class="mt-1 text-gray-900 dark:text-white">{{ descripcion }}</p>
+    </div>
+
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Ejercicios de la rutina</h3>
+    </div>
+      
+
+    <!-- Tarjeta -->
+    <div class="w-full flex flex-col lg:flex-row mb-2 min-h-[200px]" *ngFor="let card of cards">
+      <!-- <div class="grid grid-cols-2 lg:grid-cols-2 mb-2 min-h-[200px]" *ngFor="let card of cardsRutinas"> -->
+
+      <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('./assets/images/products/sentadilla2.jpg')" title="Woman holding a mug">
+      </div>
+      <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+        <div class="mb-8 flex-grow">
+          <div class="text-gray-900 font-bold text-xl mb-2">{{card.nombre}}</div>
+          <p class="text-gray-700 text-base">{{card.descripcion}}</p>
+        </div>
+        <div class="flex items-center">
+          <div class="text-sm">
+            <p class="text-gray-900 leading-none">{{nombreUsuario}}</p>
+          </div>
+        </div>
+
+        <!-- <div class="flex justify-end px-6 py-4">
+          <button class="bg-primary text-white px-4 py-2 rounded" (click)="saveRutinaEjercicios(card)">Añadir en esta rutina</button>
+        </div> -->
+
+      </div>
+      
+    </div>
+
+    <!-- <div class="flex justify-start py-4">
+      <button class="bg-black text-white w-full px-4 py-2 rounded" (click)="closeModal()">+</button>
+    </div> -->
+
+    <div class="flex justify-start py-4">
+      <button class="bg-gray-500 text-white px-4 py-2 rounded" (click)="closeModal()">Cerrar</button>
+    </div>
+
+  </div>
+</div>

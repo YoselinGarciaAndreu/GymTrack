@@ -8,10 +8,10 @@ import { TablerIconsModule } from "angular-tabler-icons";
 import { MaterialModule } from "src/app/material.module";
 import { PagesRoutes } from "../pages.routing.module";
 import { EjercicioGuardadoComponent } from "./ejercicios-personales.component";
-import { CardsComponent } from "./ejercicios-personales-components/cards/cards.component";
 import { Search_barComponent } from "./ejercicios-personales-components/search_bar/search_bar.component";
 import { EjercicioInfoComponent } from "./ejercicios-personales-components/ejercicioInfo/ejercicioInfo.component";
 import { CrearEjercicioComponent } from "./ejercicios-personales-components/crearEjercicio/crearEjercicio.component";
+import { CardsComponent } from "./ejercicios-personales-components/cards/cards.component";
 
 
 

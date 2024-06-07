@@ -1,6 +1,5 @@
 // src/app/pages/pierna/pierna-components/cards/cards.component.ts
-
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Rutina } from 'src/app/models/rutina.model';
 import { RutinasService } from 'src/app/services/rutinas/rutinas.service';
 
@@ -11,27 +10,25 @@ import { RutinasService } from 'src/app/services/rutinas/rutinas.service';
 export class CardsComponent implements OnInit {
 
   cards: Rutina[] = [];
-  @Input() card: any;
-  defaultImage: string = './assets/images/products/sentadilla2.jpg'; 
+  isModalOpen = false;
+  defaultImage: string = './assets/images/products/sentadilla2.jpg'; // Imagen por defecto
 
-
-  constructor(private rutinasService: RutinasService) { }
   isModalOpenArray: boolean[] = [];
-  isModalSaveOpenArray: boolean[] = [];
 
+  constructor(private rutinaService: RutinasService) { }
 
   ngOnInit(): void {
-    this.getRutinasDni();
-
+    this.getRutinas();
   }
-  getRutinasDni(): void {
-    this.rutinasService.getRutinasByDni("03161512R").subscribe({
-      next: (data) => {
+
+  getRutinas(): void {
+    this.rutinaService.getRutinas().subscribe({
+      next: (data: Rutina[]) => {
         this.cards = data;
       },
       error: (error) => {
-        console.log(error);
-      },
+        console.error('Error fetching rutinas:', error);
+      }
     });
   }
 
@@ -42,13 +39,5 @@ export class CardsComponent implements OnInit {
   closeModal(index: number): void {
     this.isModalOpenArray[index] = false;
   }
-
-
-  openModalSave(index: number): void {
-    this.isModalSaveOpenArray[index] = true;
-  }
-
-  closeModalSave(index: number): void {
-    this.isModalSaveOpenArray[index] = false;
-  }
 }
+

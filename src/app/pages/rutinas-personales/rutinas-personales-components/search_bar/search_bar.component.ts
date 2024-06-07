@@ -13,6 +13,7 @@ export class Search_barComponent implements OnInit {
 
     this.search_bars=search_bars;
   }
+  
 
   ngOnInit(): void {
   }

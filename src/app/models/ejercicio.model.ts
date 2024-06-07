@@ -7,5 +7,7 @@ export interface Ejercicio {
   tipo?: string;
   likes?: number;
   disLikes?: number;
-  usuario?: Usuario; 
+  dni?: Usuario; 
 }
+
+

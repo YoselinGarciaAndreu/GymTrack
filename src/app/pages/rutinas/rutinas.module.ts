@@ -4,16 +4,17 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
 import { NgApexchartsModule } from "ng-apexcharts";
 
-import { CardsComponent } from "./pierna-components/cards/cards.component";
-import { PiernaComponent } from "./pierna.component";
+import { CardsComponent } from "./rutinas-components/cards/cards.component";
+import { RutinasComponent } from "./rutinas.component";
 import { TablerIconsModule } from "angular-tabler-icons";
 import { MaterialModule } from "src/app/material.module";
 import { PagesRoutes } from "../pages.routing.module";
-import { Search_barComponent } from "./pierna-components/search_bar/search_bar.component";
-import { EjercicioInfoComponent } from "./pierna-components/ejercicioInfo/ejercicioInfo.component";
+import { Search_barComponent } from "./rutinas-components/search_bar/search_bar.component";
+import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from "@angular/common/http";
 import { EjerciciosService } from "src/app/services/ejercicios/ejercicios.service";
 import { AppComponent } from "src/app/app.component";
-import { EjercicioAddRutinaComponent } from "./pierna-components/ejercicioAddRutina/ejercicioAddRutina.component";
+import { EjercicioInfoComponent } from "./rutinas-components/rutinaInfo/ejercicioInfo.component";
 
 
 
@@ -21,10 +22,10 @@ const routes: Routes = [
   {
     path: "",
     data: {
-      title: "Pierna",
-      urls: [{ title: "Pierna", url: "/pierna" }, { title: "Pierna" }],
+      title: "Rutinas",
+      urls: [{ title: "Rutinas", url: "/rutinas" }, { title: "Rutinas" }],
     },
-    component: PiernaComponent,
+    component: RutinasComponent,
   },
 ];
 
@@ -42,23 +43,17 @@ const routes: Routes = [
     RouterModule.forChild(PagesRoutes),
   ],
   declarations: [
-    PiernaComponent,
+    // BrowserModule,
+    // HttpClientModule,
+    RutinasComponent,
     CardsComponent,
     Search_barComponent,
-    EjercicioInfoComponent,
-    EjercicioAddRutinaComponent
+    EjercicioInfoComponent
   ],
+
 
   providers: [EjerciciosService],
   bootstrap: [AppComponent]
 })
-
-export class PiernaModule {}
-
-
-
-
-
-
-
-
+//RUTA COMPRAS
+export class RutinasModule {}

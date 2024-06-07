@@ -1,0 +1,52 @@
+<div class="fixed inset-0 bg-gray-200 bg-opacity-30 flex items-center justify-center z-50" *ngIf="isOpen">
+  <!-- FONDO -->
+  <div class="bg-white p-10 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden max-w-lg w-full">
+
+    <!-- INFO RUTINA -->
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Nombre del ejercicio:</h3>
+      <p class="mt-1 text-gray-900 dark:text-white">nombre</p>
+    </div>
+
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Nombre del autor:</h3>
+      <p class="mt-1 text-gray-900 dark:text-white">Yoselin</p>
+    </div>
+
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Descripción del ejercicio:</h3>
+      <p class="mt-1 text-gray-900 dark:text-white">descripcion</p>
+    </div>
+
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Ejercicios de la rutina</h3>
+    </div>
+      
+
+    <!-- Tarjeta -->
+    <div class="w-full flex flex-col lg:flex-row">
+      <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('./assets/images/products/sentadilla2.jpg')" title="Woman holding a mug">
+      </div>
+      <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+        <div class="mb-8">
+          <div class="text-gray-900 font-bold text-xl mb-2">Can coffee make you a better developer?</div>
+          <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
+        </div>
+        <div class="flex items-center">
+          <div class="text-sm">
+            <p class="text-gray-900 leading-none">Yoselin</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="flex justify-start py-4">
+      <button class="bg-black text-white w-full px-4 py-2 rounded" (click)="closeModal()">+</button>
+    </div> -->
+
+    <div class="flex justify-start py-4">
+      <button class="bg-gray-500 text-white px-4 py-2 rounded" (click)="closeModal()">Cerrar</button>
+    </div>
+
+  </div>
+</div>

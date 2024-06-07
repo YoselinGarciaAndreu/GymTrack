@@ -1,69 +1,85 @@
+
+<!-- src/app/pages/pierna/pierna-components/cards/cards.component.html -->
+
 <div class="row">
-  <div class="col-sm-6 col-lg-3" *ngFor="let card of cards">
+  <div class="col-sm-6 col-lg-3" *ngFor="let card of cards; let i = index" >
+
+    <!-- TEST BUSQUEDA -->
+    <!-- <button
+    (click)="getEjerciciosDePiernaBusqueda()"
+     mat-mini-fab
+     color="primary"
+     class="icon-30 cart-btn"
+     matTooltip="Añadir a una rutina">
+     <i-tabler name="device-floppy" class="icon-16"></i-tabler>
+   </button> -->
+
+
     <mat-card class="cardWithShadow productcard overflow-hidden">
       <a routerLink="/widgets/cards">
         <img 
-        src="{{card.imgSrc}}"
+          src="./assets/images/products/sentadilla2.jpg"
           alt="imgSrc"
-          class="w-100"
+          class="object-cover w-full max-h-60"
           mat-card-image
         />
       </a>
       <mat-card-content class="p-b-24 p-t-12 position-relative">
-       
-       
-        <!-- <button
+
+        
+        <button
           mat-mini-fab
           color="primary"
           class="icon-30 cart-btn"
-          matTooltip="Add to Cart">
+          matTooltip="Añadir a una rutina">
           <i-tabler name="device-floppy" class="icon-16"></i-tabler>
-        </button> -->
+        </button>
+        <!-- <app-ejercicio-add-rutina 
+        [isOpen]="isModalSaveOpenArray[i]" [nombre]="card.nombre" [descripcion]="card.descripcion" (close)="closeModalSave(i)">
+        </app-ejercicio-add-rutina> -->
 
 
 
         <mat-card-title class="mat-headline-2 f-s-16 m-b-4">
-          {{card.title}}
+          {{card.nombre}}
         </mat-card-title>
+
         <div class="d-flex align-items-center justify-content-between mt-2">
+
           <div class="d-flex align-items-center">
-           
-
-            <!-- Boton modal -->
-          <button (click)="openModal()" mat-flat-button color="primary" href="" class="d-flex justify-content-center mr-1">
-    Informacion
+            <button mat-flat-button color="primary" href="" class="d-flex justify-content-center mr-1">
+              Informacion
             </button>
-            <app-ejercicio-info [isOpen]="isModalOpen" (close)="closeModal()"></app-ejercicio-info>
-
-
-
+            <!-- <app-ejercicio-info [isOpen]="isModalOpenArray[i]" [nombre]="card.nombre" [descripcion]="card.descripcion" (close)="closeModal(i)"></app-ejercicio-info> -->
           </div>
           
-    
           <div class="m-l-auto d-flex gap-4">
-          <a href="">
-            <span class="flex items-center">
-              <i-tabler name="thumb-up">
-                </i-tabler> 
-                <a >
-                  {{card.likesup}}
+            <a href="">
+              <span class="flex items-center">
+                <i-tabler name="thumb-up"></i-tabler>
+                <a>
+                  {{card.likes}}
                 </a>
               </span>
-          </a>
-
-          <a href="">
-            <span class="flex items-center"
-              ><i-tabler name="thumb-down"></i-tabler
-            >
-            <a >
-              {{card.likesdown}}
             </a>
-          </span>
-          </a>
           </div>
+
+          <div class="m-l-auto d-flex gap-4">
+            <a href="">
+              <span class="flex items-center">
+                <i-tabler name="thumb-down"></i-tabler>
+                <a>
+                  {{card.disLikes}}
+                </a>
+              </span>
+            </a>
+          </div>
+
+
         </div>
       </mat-card-content>
     </mat-card>
   </div>
 </div>
+
 

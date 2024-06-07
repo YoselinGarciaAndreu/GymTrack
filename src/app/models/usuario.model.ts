@@ -5,7 +5,6 @@ export interface Usuario {
   nombreApellidos?:String ;
   correo? :String;
   edad?:number;
-  peso? :number ;
-  masaMuscular? :number;
-  grasaCorporal? :number ;
+
 }
+
