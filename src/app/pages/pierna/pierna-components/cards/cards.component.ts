@@ -4,6 +4,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Ejercicio } from 'src/app/models/ejercicio.model';
 import { EjerciciosService } from 'src/app/services/ejercicios/ejercicios.service';
 
+
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html'
@@ -26,6 +27,7 @@ export class CardsComponent implements OnInit {
     this.getEjerciciosDeTipoBusqueda(this.searchText);
   }
 
+  
   ngOnInit(): void {
     this.getEjerciciosDePierna();
 

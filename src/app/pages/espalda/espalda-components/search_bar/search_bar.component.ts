@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 export class Search_barComponent implements OnInit {
 
 
+  // constructor(private cardsSearch: CardsComponent) { }
 
   ngOnInit(): void {}
+
+
+  // getEjersSearch(): void{
+
+  //   this.cardsSearch.getEjerciciosDePiernaBusqueda();
+
+  // }
 
 }

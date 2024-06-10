@@ -27,8 +27,9 @@ export class CrearEjercicioComponent {
   tipo: "",
   likes: 0,
   disLikes: 0,
-  dni: this.usuario , 
+  dni: this.usuario, 
   }
+
   constructor(private ejerciciosService: EjerciciosService) {}
 
   saveEjercicio(){

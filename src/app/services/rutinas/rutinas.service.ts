@@ -2,14 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Rutina } from '../../models/rutina.model';
-import { Usuario } from 'src/app/models/usuario.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RutinasService {
 
-  private apiUrl = 'http://localhost:8080/rutinas';  // Ajusta la URL de tu API
+  private apiUrl = 'http://localhost:8080/rutinas';  
 
   constructor(private http: HttpClient) { }
 
@@ -26,9 +25,6 @@ export class RutinasService {
     return this.http.post<Rutina>(`${this.apiUrl}/saveRutinas`, rutina);
   }
 
-  // getRutinasByUsuario(dni: string): Observable<Rutina[]> {
-  //   return this.http.get<Rutina[]>(`${this.apiUrl}/usuario?dni=${dni}`);
-  // }
 
 
   getRutinasByUsuario(dni: string): Observable<Rutina[]> {
@@ -39,4 +35,8 @@ export class RutinasService {
     return this.http.get<Rutina[]>(`${this.apiUrl}/dni?dni=${dni}`);
   }
 
+
+  getRutinasByGuardado(dni: string): Observable<Rutina[]> {
+    return this.http.get<Rutina[]>(`${this.apiUrl}/guardado?dni=${dni}`);
+  }
 }

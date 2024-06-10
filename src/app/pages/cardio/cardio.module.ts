@@ -11,10 +11,9 @@ import { MaterialModule } from "src/app/material.module";
 import { PagesRoutes } from "../pages.routing.module";
 import { Search_barComponent } from "./cardio-components/search_bar/search_bar.component";
 import { EjercicioInfoComponent } from "./cardio-components/ejercicioInfo/ejercicioInfo.component";
-import { BrowserModule } from "@angular/platform-browser";
-import { HttpClientModule } from "@angular/common/http";
 import { EjerciciosService } from "src/app/services/ejercicios/ejercicios.service";
 import { AppComponent } from "src/app/app.component";
+import { EjercicioAddRutinaComponent } from "./cardio-components/ejercicioAddRutina/ejercicioAddRutina.component";
 
 
 
@@ -43,17 +42,23 @@ const routes: Routes = [
     RouterModule.forChild(PagesRoutes),
   ],
   declarations: [
-    // BrowserModule,
-    // HttpClientModule,
     CardioComponent,
     CardsComponent,
     Search_barComponent,
-    EjercicioInfoComponent
+    EjercicioInfoComponent,
+    EjercicioAddRutinaComponent
   ],
-
 
   providers: [EjerciciosService],
   bootstrap: [AppComponent]
 })
-//RUTA COMPRAS
+
 export class CardioModule {}
+
+
+
+
+
+
+
+

@@ -1,8 +1,9 @@
-// src/app/pages/pierna/pierna-components/cards/cards.component.ts
+// src/app/pages/torso/torso-components/cards/cards.component.ts
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Ejercicio } from 'src/app/models/ejercicio.model';
 import { EjerciciosService } from 'src/app/services/ejercicios/ejercicios.service';
+
 
 @Component({
   selector: 'app-cards',
@@ -11,29 +12,79 @@ import { EjerciciosService } from 'src/app/services/ejercicios/ejercicios.servic
 export class CardsComponent implements OnInit {
 
   cards: Ejercicio[] = [];
-  isModalOpen = false;
-  defaultImage: string = './assets/images/products/sentadilla2.jpg'; // Imagen por defecto
+  // @Input() card: any;
+  
+  defaultImage: string = './assets/images/products/sentadilla2.jpg'; 
+
+  searchText : string = '';
 
   constructor(private ejerciciosService: EjerciciosService) { }
+  isModalOpenArray: boolean[] = [];
+  isModalSaveOpenArray: boolean[] = [];
 
-  ngOnInit(): void {
-    this.getEjerciciosDePierna();
+  onSubmit(): void{
+
+    this.getEjerciciosDeTipoBusqueda(this.searchText);
   }
 
-  getEjerciciosDePierna(): void {
-    this.ejerciciosService.getEjerciciosByTipo('Torso').subscribe((data: Ejercicio[]) => {
-      this.cards = data;
-      console.log(this.cards); // Para depuración
-    }, error => {
-      console.error('Error fetching exercises', error); // Para depuración
+  
+  ngOnInit(): void {
+    this.getEjerciciosDeTorso();
+
+  }
+  getEjerciciosDeTorso(): void {
+    this.ejerciciosService.getEjerciciosByTipo('Torso').subscribe({
+      next: (data: Ejercicio[]) => {
+        console.log(data); // Verifica la estructura de los datos aquí
+        this.cards = data;
+      },
+      error: (error) => {
+        console.log(error);
+      },
     });
   }
 
-  openModal(): void {
-    this.isModalOpen = true;
+
+  getEjerciciosDeTorsoBusqueda(nombre : string): void {
+    this.ejerciciosService.getEjerciciosByNombreBusqueda(nombre).subscribe({
+      next: (data) => {
+        this.cards = data;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
+  
+
+  getEjerciciosDeTipoBusqueda(nombre : string): void {
+    this.ejerciciosService.getEjerciciosByNombreBusquedaByTipo(nombre, "Torso").subscribe({
+      next: (data) => {
+        this.cards = data;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 
-  closeModal(): void {
-    this.isModalOpen = false;
+  openModal(index: number): void {
+    this.isModalOpenArray[index] = true;
+  }
+
+  closeModal(index: number): void {
+    this.isModalOpenArray[index] = false;
+  }
+
+
+  openModalSave(index: number): void {
+    this.isModalSaveOpenArray[index] = true;
+  }
+
+  closeModalSave(index: number): void {
+    this.isModalSaveOpenArray[index] = false;
   }
 }
+
+
+

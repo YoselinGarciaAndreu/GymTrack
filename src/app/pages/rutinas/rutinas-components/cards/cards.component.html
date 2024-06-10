@@ -13,10 +13,11 @@
       </a>
       <mat-card-content class="p-b-24 p-t-12 position-relative">
         <button
+        (click) = "guardarRutina(card)"
           mat-mini-fab
           color="primary"
           class="icon-30 cart-btn"
-          matTooltip="Añadir a una rutina">
+          matTooltip="Guardar rutina">
           <i-tabler name="device-floppy" class="icon-16"></i-tabler>
         </button>
 

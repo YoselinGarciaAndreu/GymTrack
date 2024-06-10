@@ -2,6 +2,8 @@
 // import { RutinasService } from 'src/app/services/rutinas/rutinas.service';
 
 import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Rutina } from "src/app/models/rutina.model";
+import { Usuario } from "src/app/models/usuario.model";
 import { RutinasService } from "src/app/services/rutinas/rutinas.service";
 
 @Component({
@@ -17,30 +19,30 @@ export class CrearRutinaComponent {
 
   usuario={
     dni : "03161512R",
-    nombreUsuario: "Yoselin" ,
+    nombreUsuario: "Yoselin",
     nombreApellidos: "Jose Luis Garcia Andreu", 
     correo :"jocefuo@gmail.com",
     edad :19,
   }
 
+
   rutinaComponent={
-    rutinaID : 0,
     nombre : "",
     descripcion :  "",
-    imagenRutina : "",
     likes : 0,
     dislikes : 0,
     dni : this.usuario
   }
+
+ 
   constructor(private rutinasService: RutinasService) {}
 
   saveRutina(){
 
-    console.log(this.rutinaComponent)
-
     this.rutinasService.saveRutina(this.rutinaComponent).subscribe({
       next: (data) => {
-        console.log("Rutina creado");
+        console.log(data)
+        console.log("Rutina creada");
       },
       error: (error) => {
         console.log(error);

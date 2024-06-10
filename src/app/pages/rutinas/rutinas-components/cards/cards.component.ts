@@ -1,6 +1,9 @@
 // src/app/pages/pierna/pierna-components/cards/cards.component.ts
 import { Component, OnInit } from '@angular/core';
+import { Guarda, GuardaId } from 'src/app/models/guarda.model';
 import { Rutina } from 'src/app/models/rutina.model';
+import { NotificationService } from 'src/app/services/NotificationService/notification.service';
+import { GuardaService } from 'src/app/services/guarda/guarda.service';
 import { RutinasService } from 'src/app/services/rutinas/rutinas.service';
 
 @Component({
@@ -15,7 +18,12 @@ export class CardsComponent implements OnInit {
 
   isModalOpenArray: boolean[] = [];
 
-  constructor(private rutinaService: RutinasService) { }
+  constructor(
+    private rutinaService: RutinasService,
+    private guardaService: GuardaService,
+    private notificationService: NotificationService
+
+  ) { }
 
   ngOnInit(): void {
     this.getRutinas();
@@ -28,6 +36,35 @@ export class CardsComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error fetching rutinas:', error);
+      }
+    });
+  }
+
+
+  usuario={
+    dni : "03161512R",
+    nombreUsuario: "Yoselin" ,
+    nombreApellidos: "Jose Luis Garcia Andreu", 
+    correo :"jocefuo@gmail.com",
+    edad :19,
+  }
+  guardarRutina(rutina: Rutina): void {
+    const id: GuardaId = {
+      rutinaID: rutina.rutinaID,
+      usuarioID: this.usuario?.dni
+    };
+    const guarda: Guarda = {
+      id: id,
+      usuarios: this.usuario,
+      rutinas: rutina
+    };
+    
+    this.guardaService.saveRutinaUsuario(guarda).subscribe({
+      next: (data: Guarda) => {
+        this.notificationService.showSuccess('Rutina guardada con éxito');
+      },
+      error: (error) => {
+        console.log('Error al guardar RutinaEjercicios:', error);
       }
     });
   }

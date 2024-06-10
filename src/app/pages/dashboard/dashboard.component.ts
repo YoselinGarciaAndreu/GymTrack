@@ -91,15 +91,15 @@ export const ELEMENT_DATA: productsData[] = [
     imagePath: 'assets/images/profile/user-1.jpg',
     uname: 'Sunil Joshi',
     position: 'Web Designer',
-    productName: 'Elite Admin',
-    budget: 3.9,
+    productName: 'Sentadilla',
+    budget: 31.9,
   },
   {
     id: 2,
     imagePath: 'assets/images/profile/user-2.jpg',
     uname: 'Andrew McDownland',
     position: 'Project Manager',
-    productName: 'Real Homes Theme',
+    productName: 'Fondos de triceps',
     budget: 24.5,
   },
   {
@@ -107,7 +107,7 @@ export const ELEMENT_DATA: productsData[] = [
     imagePath: 'assets/images/profile/user-3.jpg',
     uname: 'Christopher Jamil',
     position: 'Project Manager',
-    productName: 'MedicalPro Theme',
+    productName: 'Peso muerto',
     budget: 12.8,
   },
   {
@@ -115,7 +115,7 @@ export const ELEMENT_DATA: productsData[] = [
     imagePath: 'assets/images/profile/user-4.jpg',
     uname: 'Nirav Joshi',
     position: 'Frontend Engineer',
-    productName: 'Hosting Press HTML',
+    productName: 'Jalón al pecho',
     budget: 2.4,
   },
 ];
@@ -223,12 +223,12 @@ export class AppDashboardComponent {
         {
           name: 'Masa muscular',
           data: [30, 31, 31, 32, 33, 34, 34.5, 35],
-          color: '#5d87ff',
+          color: '#f76672',
         },
         {
           name: 'Grasa corporal',
           data: [24, 24, 23, 21, 21, 20, 19.5, 17],
-          color: '#49BEFF',
+          color: '#fa896b',
         },
       ],
 
@@ -320,7 +320,7 @@ export class AppDashboardComponent {
         },
         height: 130,
       },
-      colors: ['#5d87ff', '#ECF2FF', '#F9F9FD'],
+      colors: ['#f76672', '#fa896b', '#fa896b'],
       plotOptions: {
         pie: {
           startAngle: 0,

@@ -18,12 +18,12 @@ export const salesOverviewChartData: SalesOverviewChart = {
         {
             name: 'Masa muscular',
             data: [30, 31, 31, 32, 33, 34, 34.5, 35],
-            color: '#5d87ff',
+            color: '#f76672',
         },
         {
             name: 'Grasa corporal',
             data: [24, 24, 23, 21, 21, 20, 19.5, 17],
-            color: '#49BEFF',
+            color: '#fa896b',
         },
     ],
     chart: {

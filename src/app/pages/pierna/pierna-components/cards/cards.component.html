@@ -1,6 +1,7 @@
 
 <form (ngSubmit)="onSubmit()" formControlName="nombreF" action="/search" class="max-w-[75rem] mb-10 mx-auto">
-  <div class="relative">
+  <div class="relative" >
+    
       <input type="text" name="search" class="w-full border h-12 shadow p-4 rounded-full dark:text-gray-800 dark:border-gray-700 dark:bg-gray-200" placeholder="search" [(ngModel)]="searchText">
       <button type="submit">
           <svg class="text-primary h-5 w-5 absolute top-3.5 right-3 fill-current dark:text-teal-300"
