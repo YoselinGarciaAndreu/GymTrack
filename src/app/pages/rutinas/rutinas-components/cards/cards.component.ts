@@ -15,6 +15,7 @@ export class CardsComponent implements OnInit {
   cards: Rutina[] = [];
   isModalOpen = false;
   defaultImage: string = './assets/images/products/sentadilla2.jpg'; // Imagen por defecto
+  searchText : string = '';
 
   isModalOpenArray: boolean[] = [];
 
@@ -25,6 +26,10 @@ export class CardsComponent implements OnInit {
 
   ) { }
 
+  onSubmit(): void{
+
+    this.getRutinasNombreBusqueda(this.searchText);
+  }
   ngOnInit(): void {
     this.getRutinas();
   }
@@ -69,6 +74,16 @@ export class CardsComponent implements OnInit {
     });
   }
 
+  getRutinasNombreBusqueda(nombre : string): void {
+    this.rutinaService.getRutinasByNombre(nombre).subscribe({
+      next: (data) => {
+        this.cards = data;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
   openModal(index: number): void {
     this.isModalOpenArray[index] = true;
   }

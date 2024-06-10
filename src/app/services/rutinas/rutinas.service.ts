@@ -39,4 +39,8 @@ export class RutinasService {
   getRutinasByGuardado(dni: string): Observable<Rutina[]> {
     return this.http.get<Rutina[]>(`${this.apiUrl}/guardado?dni=${dni}`);
   }
+
+  getRutinasByNombre(nombre: string): Observable<Rutina[]> {
+    return this.http.get<Rutina[]>(`${this.apiUrl}/nombre?nombre=${nombre}`);
+  }
 }
