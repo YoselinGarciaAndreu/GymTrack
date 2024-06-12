@@ -5,6 +5,6 @@ export interface Usuario {
   nombreApellidos?:String ;
   correo? :String;
   edad?:number;
-
+  password?: String;
 }
 

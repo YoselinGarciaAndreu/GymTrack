@@ -1,7 +1,9 @@
 // src/app/pages/pierna/pierna-components/cards/cards.component.ts
 
 import { Component, Input, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Rutina } from 'src/app/models/rutina.model';
+import { Usuario } from 'src/app/models/usuario.model';
 import { RutinasService } from 'src/app/services/rutinas/rutinas.service';
 
 @Component({
@@ -13,9 +15,21 @@ export class CardsComponent implements OnInit {
   cards: Rutina[] = [];
   @Input() card: any;
   defaultImage: string = './assets/images/products/sentadilla2.jpg'; 
+ 
+  usuario?: Usuario;
 
 
-  constructor(private rutinasService: RutinasService) { }
+
+  constructor(
+    private rutinasService: RutinasService,
+    private cookieService: CookieService,
+  ) { 
+    const usuarioJson = this.cookieService.get('usuario');
+    if (usuarioJson) {
+      this.usuario = JSON.parse(usuarioJson);
+    }
+
+  }
   isModalOpenArray: boolean[] = [];
   isModalSaveOpenArray: boolean[] = [];
 
@@ -25,14 +39,18 @@ export class CardsComponent implements OnInit {
 
   }
   getRutinasDni(): void {
-    this.rutinasService.getRutinasByDni("03161512R").subscribe({
-      next: (data) => {
-        this.cards = data;
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+    if (this.usuario && this.usuario.dni) {
+      this.rutinasService.getRutinasByDni(this.usuario.dni).subscribe({
+        next: (data) => {
+          this.cards = data;
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    } else {
+      console.log("Usuario or dni is undefined");
+    }
   }
 
   openModal(index: number): void {

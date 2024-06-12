@@ -16,7 +16,10 @@ export class RutinasService {
     return this.http.get<Rutina[]>(`${this.apiUrl}/getRutinas`);
   }
 
-  getRutinasByTipo(tipo: string): Observable<Rutina[]> {
+  getRutinasTop(): Observable<Rutina[]> {
+    return this.http.get<Rutina[]>(`${this.apiUrl}/getRutinasTop`);
+  }
+  getRutinasByTipo(tipo: String): Observable<Rutina[]> {
     return this.http.get<Rutina[]>(`${this.apiUrl}/tipo?tipo=${tipo}`);
   }
 
@@ -27,20 +30,33 @@ export class RutinasService {
 
 
 
-  getRutinasByUsuario(dni: string): Observable<Rutina[]> {
+  getRutinasByUsuario(dni: String): Observable<Rutina[]> {
     return this.http.get<Rutina[]>(`${this.apiUrl}/usuario/${dni}`);
   }
 
-  getRutinasByDni(dni: string): Observable<Rutina[]> {
+  getRutinasByDni(dni: String): Observable<Rutina[]> {
     return this.http.get<Rutina[]>(`${this.apiUrl}/dni?dni=${dni}`);
   }
 
 
-  getRutinasByGuardado(dni: string): Observable<Rutina[]> {
+  getRutinasByGuardado(dni: String): Observable<Rutina[]> {
     return this.http.get<Rutina[]>(`${this.apiUrl}/guardado?dni=${dni}`);
   }
 
-  getRutinasByNombre(nombre: string): Observable<Rutina[]> {
+  getRutinasByNombre(nombre: String): Observable<Rutina[]> {
     return this.http.get<Rutina[]>(`${this.apiUrl}/nombre?nombre=${nombre}`);
   }
+
+ 
+
+  getSumLikesByUsuario(dni: String): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/cantidadLikes?dni=${dni}`);
+  }
+
+  getTopRutinaByLikesForUsuario(dni: String): Observable<Rutina> {
+    return this.http.get<Rutina>(`${this.apiUrl}/masGustada?dni=${dni}`);
+  }
+  
+
+
 }

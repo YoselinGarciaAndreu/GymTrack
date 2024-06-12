@@ -1,26 +1,26 @@
-<div class="fixed inset-0 bg-gray-200 bg-opacity-60 flex items-center justify-center z-50" *ngIf="isOpen">
-  <div class="bg-white p-10 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden w-3/4 max-w-md">
-    <div class="mb-4">
-      <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Nombre del ejercicio:</h3>
-      <p class="mt-1 text-gray-900 dark:text-white">{{ nombre }}</p>
+<div class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50" *ngIf="isOpen">
+  <div class="bg-white p-6 rounded-lg shadow-lg overflow-hidden w-11/12 max-w-md dark:bg-gray-900">
+    <div class="mb-4 border-b pb-2">
+      <h3 class="text-2xl font-semibold text-primary dark:text-teal-300">Detalles del Ejercicio</h3>
     </div>
     
     <div class="mb-4">
-      <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Nombre del autor:</h3>
-      <p class="mt-1 text-gray-900 dark:text-white">{{ nombreUsuario }}</p>
+      <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-300">Nombre del ejercicio:</h4>
+      <p class="mt-1 text-gray-700 dark:text-gray-200">{{ nombre }}</p>
     </div>
     
     <div class="mb-4">
-      <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Descripción del ejercicio:</h3>
-      <p class="mt-1 text-gray-900 dark:text-white">{{ descripcion }}</p>
+      <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-300">Nombre del autor:</h4>
+      <p class="mt-1 text-gray-700 dark:text-gray-200">{{ nombreUsuario }}</p>
+    </div>
+    
+    <div class="mb-4">
+      <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-300">Descripción del ejercicio:</h4>
+      <p class="mt-1 text-gray-700 dark:text-gray-200">{{ descripcion }}</p>
     </div>
 
-
-    <div class="flex justify-end px-6 py-4">
-      <button class="bg-gray-500 text-white px-4 py-2 rounded" (click)="closeModal()">Cerrar</button>
+    <div class="mt-6">
+      <button class="bg-gray-100 text-white px-4 py-2 shadow-md hover:bg-gray-600 focus:outline-none"  mat-flat-button (click)="closeModal()">Cerrar</button>
     </div>
   </div>
 </div>
-
-
-

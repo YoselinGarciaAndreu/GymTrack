@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Ejercicio } from 'src/app/models/ejercicio.model';
 import { Rutina } from 'src/app/models/rutina.model';
 import { RutinaEjercicioId, RutinaEjercicios } from 'src/app/models/rutinaEjercicios.model';
@@ -31,14 +32,27 @@ export class EjercicioAddRutinaComponent {
   }
 
   cardsRutinas: Rutina[] = [];
+
+  usuario?: Usuario;
+
+
+
+
   constructor(
 
     private rutinasService: RutinasService,
     private rutinaEjerciciosService: RutinasEjerciciosService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private cookieService: CookieService,
 
 
-  ) { }
+
+  ) { 
+    const usuarioJson = this.cookieService.get('usuario');
+  if (usuarioJson) {
+    this.usuario = JSON.parse(usuarioJson);
+  }
+  }
   
 
   ngOnInit(): void {
@@ -46,7 +60,9 @@ export class EjercicioAddRutinaComponent {
   
     }
     getEjerciciosDePierna(): void {
-      this.rutinasService.getRutinasByDni('03161512R').subscribe({
+  if (this.usuario && this.usuario.dni) {
+
+      this.rutinasService.getRutinasByDni(this.usuario.dni).subscribe({
         next: (data: Rutina[]) => {
           console.log(data); // Verifica la estructura de los datos aquí
           this.cardsRutinas = data;
@@ -55,6 +71,9 @@ export class EjercicioAddRutinaComponent {
           console.log(error);
         },
       });
+    }else{
+
+    }
     }
 
   

@@ -14,7 +14,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
 import { EjerciciosService } from "src/app/services/ejercicios/ejercicios.service";
 import { AppComponent } from "src/app/app.component";
-import { EjercicioInfoComponent } from "./rutinas-components/rutinaInfo/ejercicioInfo.component";
+import { RutinaInfoComponent } from "./rutinas-components/rutinaInfo/ejercicioInfo.component";
 
 
 
@@ -48,7 +48,7 @@ const routes: Routes = [
     RutinasComponent,
     CardsComponent,
     Search_barComponent,
-    EjercicioInfoComponent
+    RutinaInfoComponent
   ],
 
 

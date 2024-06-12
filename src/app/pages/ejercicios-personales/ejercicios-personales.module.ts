@@ -12,6 +12,7 @@ import { Search_barComponent } from "./ejercicios-personales-components/search_b
 import { EjercicioInfoComponent } from "./ejercicios-personales-components/ejercicioInfo/ejercicioInfo.component";
 import { CrearEjercicioComponent } from "./ejercicios-personales-components/crearEjercicio/crearEjercicio.component";
 import { CardsComponent } from "./ejercicios-personales-components/cards/cards.component";
+import { CardUserComponent } from "./ejercicios-personales-components/cardUser/cardUser.component";
 
 
 
@@ -46,6 +47,7 @@ const routes: Routes = [
     Search_barComponent,
     EjercicioInfoComponent,
     CrearEjercicioComponent,
+    CardUserComponent,
 
   ],
 })

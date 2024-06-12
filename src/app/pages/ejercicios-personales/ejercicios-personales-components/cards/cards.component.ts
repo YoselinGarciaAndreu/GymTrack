@@ -1,7 +1,9 @@
 // src/app/pages/pierna/pierna-components/cards/cards.component.ts
 
 import { Component, Input, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Ejercicio } from 'src/app/models/ejercicio.model';
+import { Usuario } from 'src/app/models/usuario.model';
 import { EjerciciosService } from 'src/app/services/ejercicios/ejercicios.service';
 
 @Component({
@@ -13,9 +15,21 @@ export class CardsComponent implements OnInit {
   cards: Ejercicio[] = [];
   @Input() card: any;
   defaultImage: string = './assets/images/products/sentadilla2.jpg'; 
+  
+  usuario?: Usuario;
+  
 
+  constructor(
+    private ejerciciosService: EjerciciosService,
+    private cookieService: CookieService,
 
-  constructor(private ejerciciosService: EjerciciosService) { }
+  ) { 
+
+    const usuarioJson = this.cookieService.get('usuario');
+    if (usuarioJson) {
+      this.usuario = JSON.parse(usuarioJson);
+    }
+  }
   isModalOpenArray: boolean[] = [];
   isModalSaveOpenArray: boolean[] = [];
 
@@ -25,7 +39,8 @@ export class CardsComponent implements OnInit {
 
   }
   getEjerciciosDni(): void {
-    this.ejerciciosService.getEjerciciosByDni("03161512R").subscribe({
+    if (this.usuario && this.usuario.dni) {
+      this.ejerciciosService.getEjerciciosByDni(this.usuario.dni).subscribe({
       next: (data) => {
         this.cards = data;
       },
@@ -33,6 +48,9 @@ export class CardsComponent implements OnInit {
         console.log(error);
       },
     });
+  }else{
+    
+  }
   }
 
   openModal(index: number): void {

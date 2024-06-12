@@ -1,0 +1,19 @@
+  <div class="row">
+    <!-- Tarjeta de información del usuario -->
+    <div class="col-lg-12 col-sm-12">
+      <div class="cardWithShadow h-full flex flex-col items-center justify-between p-6">
+        <div class="flex flex-col items-center">
+          <img class="rounded-full mt-2 mb-5 w-40 h-40 object-cover" src="/assets/images/profile/user-1.jpg" alt="" />
+          <div class="text-center">
+            <p class="mb-2 font-bold">Nombre de usuario: <span class="font-normal">{{usuario?.nombreUsuario}}</span></p>
+            <p class="mb-2 font-bold">Edad: <span class="font-normal">{{usuario?.edad}}</span></p>
+            <p class="mb-6 font-bold">Correo: <span class="font-normal">{{usuario?.correo}}</span></p>
+            <h4 class="text-balance text-xl font-bold text-black lg:text-3xl dark:text-white">IMC</h4>
+            <p class="text-4xl font-bold text-primary dark:text-indigo-400">{{imc}}</p>
+            <p class="mt-6 font-bold">Masa Muscular: <span class="text-2xl font-bold text-primary dark:text-indigo-40">{{estadisticas?.masaMuscular}} %</span></p>
+            <p class="font-bold mb-1">Grasa Corporal: <span class="text-2xl font-bold text-primary dark:text-indigo-40">{{estadisticas?.grasa}} %</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -14,6 +14,8 @@ import { EditarRutinaComponent } from "./rutinas-personales-components/editarRut
 import { EjercicioInfoComponent } from "./rutinas-personales-components/ejercicioInfo/ejercicioInfo.component";
 import { CardsComponent } from "./rutinas-personales-components/cards/cards.component";
 import { CardsGuardadasComponent } from "./rutinas-personales-components/cardsGuardadas/cardsGuardadas.component";
+import { RutinaInfoComponent } from "./rutinas-personales-components/rutinaInfo/ejercicioInfo.component";
+import { CardUserComponent } from "./rutinas-personales-components/cardUser/cardUser.component";
 
 
 
@@ -48,7 +50,9 @@ const routes: Routes = [
     EjercicioInfoComponent,
     CrearRutinaComponent,
     EditarRutinaComponent,
-    CardsGuardadasComponent
+    CardsGuardadasComponent,
+    RutinaInfoComponent,
+    CardUserComponent
 
   ],
 })

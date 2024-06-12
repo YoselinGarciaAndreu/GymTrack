@@ -24,7 +24,7 @@ export class EjerciciosService {
     return this.http.get<Ejercicio[]>(`${this.apiUrl}/byRutina?rutinaId=${rutinaId}`);
   }
 
-  getEjerciciosByDni(dni: string): Observable<Ejercicio[]> {
+  getEjerciciosByDni(dni: String): Observable<Ejercicio[]> {
     return this.http.get<Ejercicio[]>(`${this.apiUrl}/dni?dni=${dni}`);
   }
 
@@ -41,7 +41,14 @@ export class EjerciciosService {
     return this.http.post<Ejercicio>(`${this.apiUrl}/saveEjercicios`, ejercicio);
   }
 
+  getSumLikesByUsuario(dni: String): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/cantidadLikes?dni=${dni}`);
+  }
 
+  getTopEjercicioByLikesForUsuario(dni: String): Observable<Ejercicio> {
+    return this.http.get<Ejercicio>(`${this.apiUrl}/masGustado?dni=${dni}`);
+  }
+  
 }
 
 

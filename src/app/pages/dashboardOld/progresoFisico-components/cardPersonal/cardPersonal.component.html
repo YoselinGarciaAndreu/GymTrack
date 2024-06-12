@@ -1,0 +1,35 @@
+<div class="flex justify-center p-4">
+  <article class="group grid rounded-xl max-w-6xl mb-8 md:grid-cols-12 overflow-hidden border border-slate-100 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 shadow-lg">
+      <!-- Image -->
+      <div class="col-span-3 overflow-hidden">
+          <img src="/assets/images/profile/user-1.jpg" class="h-52 md:h-full w-full object-cover" alt="a man wearing VR goggles" />
+      </div>
+      <!-- Body -->
+      <div class="flex flex-col justify-center p-6 col-span-5 bg-primary-50 dark:bg-primary-900">
+          <h3 class="text-xl font-bold text-primary lg:text-3xl dark:text-white" aria-describedby="articleDescription">{{usuario?.nombreApellidos}}</h3>
+          <div id="articleDescription" class="my-4 max-w-lg text-lg">
+              <p class="my-2"><strong>Altura:</strong> {{estadisticas?.altura}}m</p>
+              <p class="my-2"><strong>Peso:</strong> {{estadisticas?.peso}}KL</p>
+              <p class="my-2"><strong>Masa muscular:</strong> {{estadisticas?.masaMuscular}}%</p>
+              <p class="my-2"><strong>Grasa corporal:</strong> {{estadisticas?.grasa}}%</p>
+          </div>
+      </div>
+      <!-- IMC -->
+      <div class="flex flex-col justify-center items-center p-6 col-span-4 bg-primary-100 dark:bg-primary-800 rounded-xl md:rounded-l-none">
+          <h4 class="text-xl font-bold lg:text-3xl dark:text-white">IMC</h4>
+          <p class="text-4xl font-bold text-primary dark:text-primary-200">{{imc}}</p>
+
+          <button
+          (click)="openModal()"
+            mat-flat-button
+            color="primary"
+            class="d-flex justify-content-center mt-10"
+          >
+            Actualizar datos
+            
+          </button>
+          <app-actualizar-datos [isOpen]="isModalOpen" (close)="closeModal()"></app-actualizar-datos>
+
+      </div>
+  </article>
+</div>

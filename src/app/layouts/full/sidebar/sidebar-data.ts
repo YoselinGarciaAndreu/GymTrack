@@ -70,14 +70,14 @@ export const navItems: NavItem[] = [
   
   
 
-     {
-     navCap: 'Auth',
-   },
-   {
-     displayName: 'Login',
-     iconName: 'lock',
-     route: '/authentication/login',
-   },
+  //    {
+  //    navCap: 'Auth',
+  //  },
+  //  {
+  //    displayName: 'Login',
+  //    iconName: 'lock',
+  //    route: '/authentication/login',
+  //  },
 
   // {
   //   navCap: 'Ui Components',

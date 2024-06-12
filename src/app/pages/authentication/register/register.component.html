@@ -15,75 +15,46 @@
             </a>
           </div>
 
-          <!-- <div class="row m-t-24 custom-row">
-            <div class="col-12 col-sm-6">
-              <button mat-stroked-button class="w-100">
-                <div class="d-flex align-items-center">
-                  <img
-                    src="/assets/images/svgs/google-icon.svg"
-                    alt="google"
-                    width="16"
-                    class="m-r-8"
-                  />
-                  Sign in with Google
-                </div>
-              </button>
-            </div>
-            <div class="col-12 col-sm-6">
-              <button
-                mat-stroked-button
-                class="w-100 d-flex align-items-center"
-              >
-                <div class="d-flex align-items-center">
-                  <img
-                    src="/assets/images/svgs/facebook-icon.svg"
-                    alt="facebook"
-                    width="40"
-                    class="m-r-4"
-                  />
-                  Sign in with FB
-                </div>
-              </button>
-            </div>
-          </div> -->
 
-          <!-- <div class="or-border m-t-30">or sign up with</div> -->
 
-          <form class="m-t-30">
-            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-              >Nombre completo</mat-label
-            >
+          <form class="m-t-30" #formRegistro="ngForm" (ngSubmit)="saveUsuario()">
+            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Nombre completo</mat-label>
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput />
+              <input matInput [(ngModel)]="usuarioComponent.nombreApellidos" name="nombreApellidos" required />
             </mat-form-field>
-
-            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-            >Nombre de usuario</mat-label
-          >
-          <mat-form-field appearance="outline" class="w-100" color="primary">
-            <input matInput />
-          </mat-form-field>
-
-            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-              >Correo electrónico</mat-label
-            >
+          
+            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Nombre de usuario</mat-label>
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput type="email" />
+              <input matInput [(ngModel)]="usuarioComponent.nombreUsuario" name="nombreUsuario" required />
             </mat-form-field>
-
-            <!-- password -->
-            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-              >Contraseña</mat-label
-            >
+          
+            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Correo electrónico</mat-label>
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput type="password" />
+              <input matInput type="email" [(ngModel)]="usuarioComponent.correo" name="correo" required />
             </mat-form-field>
-
-            <a [routerLink]="['/']" mat-flat-button color="primary" class="w-100">
+          
+            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">DNI</mat-label>
+            <mat-form-field appearance="outline" class="w-100" color="primary">
+              <input matInput [(ngModel)]="usuarioComponent.dni" name="dni" required />
+            </mat-form-field>
+          
+            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Edad</mat-label>
+            <mat-form-field appearance="outline" class="w-100" color="primary">
+              <input matInput type="number" [(ngModel)]="usuarioComponent.edad" name="edad" required />
+            </mat-form-field>
+          
+            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Contraseña</mat-label>
+            <mat-form-field appearance="outline" class="w-100" color="primary">
+              <input matInput type="password" [(ngModel)]="usuarioComponent.password" name="password" required />
+            </mat-form-field>
+          
+            <button mat-flat-button color="primary" class="w-100" [disabled]="!formRegistro.valid">
               Registrarse
-            </a>
-            <!-- input -->
+            </button>
           </form>
+
+
+
           <span class="d-block f-w-500 text-center m-t-24"
             >Ya tienes una cuenta?
 

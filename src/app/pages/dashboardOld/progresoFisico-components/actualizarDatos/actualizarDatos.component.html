@@ -1,0 +1,35 @@
+<div class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50" *ngIf="isOpen">
+  <div class="bg-white p-10 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden w-3/4 max-w-md">
+    <div class="p-6">
+      <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Actulizar tus datos</h2>
+      <form (submit)="saveEstadisticas()">
+        <div class="mb-4">
+          <label for="nombre" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Peso actual:</label>
+          <input id="nombre" type="number" class="mt-1 block w-full p-2 border border-gray-300 rounded"  name="nombre" [(ngModel)]="estadisticasComponent.peso" required>
+        </div>
+
+        <div class="mb-4">
+          <label for="nombre" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Porcentaje de grasa actual:</label>
+          <input id="nombre" type="number" class="mt-1 block w-full p-2 border border-gray-300 rounded"  name="nombre" [(ngModel)]="estadisticasComponent.grasa" required>
+        </div>
+
+        <div class="mb-4">
+          <label for="nombre" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Altura actual:</label>
+          <input id="nombre" type="number" class="mt-1 block w-full p-2 border border-gray-300 rounded"  name="nombre" [(ngModel)]="estadisticasComponent.altura" required>
+        </div>
+
+        <div class="mb-4">
+          <label for="nombre" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Porcentaje de masa muscular actual:</label>
+          <input id="nombre" type="number" class="mt-1 block w-full p-2 border border-gray-300 rounded"  name="nombre" [(ngModel)]="estadisticasComponent.masaMuscular" required>
+        </div>
+        <div class="flex justify-end px-6 py-4">
+          <button type="button" class="bg-gray-500 text-white px-4 py-2 rounded" (click)="closeModal()">Cerrar</button>
+          <button type="submit" class="bg-primary text-white px-4 py-2 rounded ml-2">Guardar</button>
+          
+        </div>
+        
+
+      </form>
+    </div>
+  </div>
+</div>

@@ -9,14 +9,14 @@
   <!-- Notification Dropdown -->
   <!-- --------------------------------------------------------------- -->
 
-  <button mat-icon-button aria-label="Notifications">
+  <!-- <button mat-icon-button aria-label="Notifications">
     <i-tabler
       class="d-flex"
       name="bell"
       matBadge="1"
       matBadgeColor="primary"
     ></i-tabler>
-  </button>
+  </button> -->
 
   <span class="flex-1-auto"></span>
 
@@ -29,8 +29,7 @@
     <a
       mat-flat-button
       color="primary"
-      href="https://adminmart.com/"
-      target="_blank"
+      href="/rutinas"
       class="flex items-center m-0"
     >
       Rutinas
@@ -48,7 +47,7 @@
         alt="User Profile Picture"
       />
       </button>
-      <p class="text-sm">Jose Luis</p>
+      <p class="text-sm">Yoselin</p>
     </div>
   </div>
   
@@ -88,24 +87,24 @@
 
   
   <mat-menu #profilemenu="matMenu" class="topbar-dd cardWithShadow">
-    <button mat-menu-item>
+    <a mat-menu-item href="/progreso_fisico">
       <mat-icon class="d-flex align-items-center"
         ><i-tabler name="user" class="icon-18 d-flex"></i-tabler></mat-icon
-      >My Profile
-    </button>
-    <button mat-menu-item>
+      >Progreso fisico
+    </a>
+    <a mat-menu-item href="/rutinas_guardadas">
       <mat-icon class="d-flex align-items-center"
         ><i-tabler name="mail" class="icon-18 d-flex"></i-tabler></mat-icon
-      >My Account
-    </button>
-    <button mat-menu-item>
+      >Mis rutinas
+    </a>
+    <a mat-menu-item href="/ejercicios_guardados">
       <mat-icon class="d-flex align-items-center"
         ><i-tabler
           name="list-check"
           class="icon-18 d-flex"
         ></i-tabler></mat-icon
-      >My Task
-    </button>
+      >Mis ejercicios
+    </a>
 
     <div class="p-x-12 m-t-12">
       <a
@@ -113,7 +112,7 @@
         mat-stroked-button
         color="primary"
         class="w-100"
-        >Logout</a
+        >Cerrar sesión</a
       >
     </div>
   </mat-menu>

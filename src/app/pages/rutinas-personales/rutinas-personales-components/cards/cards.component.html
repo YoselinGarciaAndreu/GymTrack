@@ -27,13 +27,13 @@
       <mat-card-content class="p-b-24 p-t-12 position-relative">
 
         
-        <button
+        <!-- <button
           mat-mini-fab
           color="primary"
           class="icon-30 cart-btn"
           matTooltip="Añadir a una rutina">
           <i-tabler name="device-floppy" class="icon-16"></i-tabler>
-        </button>
+        </button> -->
         <!-- <app-ejercicio-add-rutina 
         [isOpen]="isModalSaveOpenArray[i]" [nombre]="card.nombre" [descripcion]="card.descripcion" (close)="closeModalSave(i)">
         </app-ejercicio-add-rutina> -->
@@ -45,14 +45,14 @@
         </mat-card-title>
 
         <div class="d-flex align-items-center justify-content-between mt-2">
-
+          
           <div class="d-flex align-items-center">
-            <button mat-flat-button color="primary" href="" class="d-flex justify-content-center mr-1">
+            <button  (click)="openModal(i)" mat-flat-button color="primary" href="" class="d-flex justify-content-center mr-1">
               Informacion
             </button>
-            <!-- <app-ejercicio-info [isOpen]="isModalOpenArray[i]" [nombre]="card.nombre" [descripcion]="card.descripcion" (close)="closeModal(i)"></app-ejercicio-info> -->
+            <app-rutinaPropia-info [isOpen]="isModalOpenArray[i]" [nombre]="card.nombre" [descripcion]="card.descripcion" [rutina] = "card" [nombreUsuario]="card.dni" (close)="closeModal(i)"></app-rutinaPropia-info>
           </div>
-          
+
           <div class="m-l-auto d-flex gap-4">
             <a href="">
               <span class="flex items-center">
