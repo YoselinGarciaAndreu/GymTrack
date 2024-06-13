@@ -19,6 +19,8 @@ export class InsertarPesoComponent {
   @Output() close = new EventEmitter<void>();
   @Input() rutina: Rutina;
   idEntrenamiento?: Entrenamiento;
+  
+  data: any;
   private subscription: Subscription;
 
 
@@ -44,10 +46,10 @@ export class InsertarPesoComponent {
   ngOnInit(): void {
     this.getEjerciciosByRutina();
     this.getEjerciciosEntrenamientoByRutina();
-    // this.subscription = this.cardObservableService.data$.subscribe(data=>{
-    //   this.data = data // Información enviada por el componente padre al ser actuializado mediante el servicio de tipo observable
-    //   this.getEjerciciosEntrenamientoByRutina()
-    // })
+    this.subscription = this.cardObservableService.data$.subscribe(data=>{
+       this.data = data // Información enviada por el componente padre al ser actuializado mediante el servicio de tipo observable
+       this.getEjerciciosEntrenamientoByRutina()
+     })
   }
 
   saveEntrenamiento(): void{
@@ -114,6 +116,8 @@ export class InsertarPesoComponent {
       this.ejercicioEntrenamiento.saveEjercicioEntrenamiento(ejerEntre).subscribe({
         next: (data) => {
           console.log(data)
+          
+          this.cardObservableService.setData(null)
           return data
           
 
