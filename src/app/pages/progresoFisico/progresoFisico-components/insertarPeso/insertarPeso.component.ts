@@ -1,10 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { EMPTY } from 'rxjs';
+import { EMPTY, Subscription } from 'rxjs';
 import { Ejercicio } from 'src/app/models/ejercicio.model';
 import { EjercicioEntrenamiento, EjercicioEntrenamientoId } from 'src/app/models/ejercicioEntrenamiento.model';
 import { Entrenamiento } from 'src/app/models/entrenamiento.model';
 import { Rutina } from 'src/app/models/rutina.model';
 import { NotificationService } from 'src/app/services/NotificationService/notification.service';
+import { CardObserverService } from 'src/app/services/cardObserver/cardObserver.service';
 import { EjercicioEntrenamientoService } from 'src/app/services/ejercicioEntrenamiento/ejercicioEntrenamiento.service';
 import { EjerciciosService } from 'src/app/services/ejercicios/ejercicios.service';
 import { EntrenamientoService } from 'src/app/services/entrenamiento/entrenamiento.service';
@@ -18,13 +19,15 @@ export class InsertarPesoComponent {
   @Output() close = new EventEmitter<void>();
   @Input() rutina: Rutina;
   idEntrenamiento?: Entrenamiento;
+  private subscription: Subscription;
 
 
   constructor(
     private ejerciciosService: EjerciciosService,
     private entrenamientoService: EntrenamientoService,
     private ejercicioEntrenamiento : EjercicioEntrenamientoService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private cardObservableService: CardObserverService,
 
   ) { }
 
@@ -41,7 +44,10 @@ export class InsertarPesoComponent {
   ngOnInit(): void {
     this.getEjerciciosByRutina();
     this.getEjerciciosEntrenamientoByRutina();
-
+    // this.subscription = this.cardObservableService.data$.subscribe(data=>{
+    //   this.data = data // Información enviada por el componente padre al ser actuializado mediante el servicio de tipo observable
+    //   this.getEjerciciosEntrenamientoByRutina()
+    // })
   }
 
   saveEntrenamiento(): void{
@@ -56,8 +62,9 @@ export class InsertarPesoComponent {
           this.idEntrenamiento = data
           // Procesado de los ejercicios con el entrenamiento recien creado
           this.saveEjercicioEntrenamiento(data)
-          this.notificationService.showSuccess('Entrenamiento añadido con éxito');
           
+          this.notificationService.showSuccess('Entrenamiento añadido con éxito');
+
         },
         error: (error) => {
           console.log(error);
@@ -78,6 +85,7 @@ export class InsertarPesoComponent {
 
       series_ejercicio.forEach(serie => { // Por cada serie del ejercicio actual
         let inputElement = serie as HTMLInputElement; //Mapea la variable serie a tipo HTMLInputElement
+        //console.log(inputElement.value)
 
         if (inputElement.value && String(inputElement.value).trim().length > 0) {  // Si el valor es mayor que 0 o no nulo se agrega a la lista
           series_valores.push(inputElement.value);
@@ -97,7 +105,7 @@ export class InsertarPesoComponent {
         id: id,
         entrenamiento: this.idEntrenamiento,
         rutinas: this.rutina,
-        ejercicios: ejer,
+        ejercicio: ejer,
         primeraSerie: series_valores[0],
         segundaSerie: series_valores[1],
         terceraSerie: series_valores[2]
@@ -123,7 +131,7 @@ export class InsertarPesoComponent {
 
     this.ejerciciosService.getEjerciciosByRutina(this.rutina.rutinaID).subscribe({
       next: (data: Ejercicio[]) => {
-        console.log(data); // Verifica la estructura de los datos aquí
+        // console.log(data); // Verifica la estructura de los datos aquí
         this.ejers = data;
       },
       error: (error) => {

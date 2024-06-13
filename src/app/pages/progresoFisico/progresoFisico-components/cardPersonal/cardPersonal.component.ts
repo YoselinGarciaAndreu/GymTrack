@@ -5,6 +5,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { Usuario } from 'src/app/models/usuario.model';
 import { EstadisticasUsuarioService } from 'src/app/services/estadisticasUsuario/estadisticasUsuario.service';
 import { EstadisticasUsuario } from 'src/app/models/estadisticasUsuario.model';
+import { CardObserverService } from 'src/app/services/cardObserver/cardObserver.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cardPersonal',
@@ -17,11 +19,13 @@ export class CardPersonalComponent implements OnInit {
 
   usuario?: Usuario;
 
+  private subscription: Subscription;
   estadisticas?: EstadisticasUsuario;
 
   constructor(
     private estadisticasUsu: EstadisticasUsuarioService,
     private cookieService: CookieService,
+    private cardObservableService: CardObserverService
   ) { 
     const usuarioJson = this.cookieService.get('usuario');
     if (usuarioJson) {
@@ -31,6 +35,10 @@ export class CardPersonalComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEstadisticas();
+    this.subscription = this.cardObservableService.data$.subscribe(estadisticas=>{
+      this.estadisticas = estadisticas // Información enviada por el componente padre al ser actuializado mediante el servicio de tipo observable
+      this.getEstadisticas()
+    })
   }
 
   getEstadisticas(): void {

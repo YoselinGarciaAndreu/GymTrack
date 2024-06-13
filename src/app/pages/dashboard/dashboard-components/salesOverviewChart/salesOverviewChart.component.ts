@@ -49,17 +49,17 @@ updateChart(): void {
   if (this.estadisticas) {
     const masaMuscular = this.estadisticas.map(est => est.masaMuscular ?? 0);
     const grasa = this.estadisticas.map(est => est.grasa ?? 0);
-    // const fechas = this.estadisticas.map(est => {
-    //   if (est.fecha) {
-    //     const date = new Date(est.fecha);
-    //     // Formatear la fecha en el formato deseado
-    //     const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-    //     return formattedDate;
+    const fechas = this.estadisticas.map(est => {
+      if (est.fecha) {
+        const date = new Date(est.fecha);
+        // Formatear la fecha en el formato deseado
+        const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+        return formattedDate;
 
-    //   } else {
-    //     return 'Fecha desconocida';
-    //   }
-    // });
+      } else {
+        return 'Fecha desconocida';
+      }
+    });
 
     this.salesOverviewChart.series = [
       {
@@ -74,7 +74,7 @@ updateChart(): void {
       },
     ];
 
-    // this.salesOverviewChart.xaxis.categories = fechas;
+    this.salesOverviewChart.xaxis.categories = fechas;
   }
 }
 

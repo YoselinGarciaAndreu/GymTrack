@@ -26,7 +26,7 @@
 
         <div class="mb-4">
           <label for="imagen" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Subir imagen:</label>
-          <input id="imagen" type="file" class="mt-1 block w-full p-2 border border-gray-300 rounded" name="imagen" required>
+          <input id="imagen" type="file" class="mt-1 block w-full p-2 border border-gray-300 rounded" name="imagen" (change)="onFileSelected($event)" required>
         </div>
 
         <div class="flex justify-end px-6 py-4">

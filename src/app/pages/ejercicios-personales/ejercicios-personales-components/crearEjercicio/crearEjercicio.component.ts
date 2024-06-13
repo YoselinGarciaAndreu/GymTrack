@@ -1,6 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Usuario } from 'src/app/models/usuario.model';
+import { NotificationService } from 'src/app/services/NotificationService/notification.service';
+import { CardObserverService } from 'src/app/services/cardObserver/cardObserver.service';
 
 import { EjerciciosService } from 'src/app/services/ejercicios/ejercicios.service';
 
@@ -21,6 +23,8 @@ export class CrearEjercicioComponent {
   constructor(
     private ejerciciosService: EjerciciosService,
     private cookieService: CookieService,
+    private notificationService: NotificationService,
+    private cardObserverService: CardObserverService
 
   ) {
 
@@ -35,6 +39,7 @@ export class CrearEjercicioComponent {
     descripcion: "",
     nombre: "",
     tipo: "",
+    imagen: "",
     likes: 0,
     disLikes: 0,
     dni: this.usuario, 
@@ -46,16 +51,28 @@ export class CrearEjercicioComponent {
     
     this.ejerciciosService.saveEjercicio(this.ejercicioComponent).subscribe({
 
-
       next: (data) => {
-        console.log("Ejercicio creado");
-      },
+        this.notificationService.showSuccess('Ejercicio creado');          
+        
+        // notify cards service
+        this.cardObserverService.setData(null)
+            },
       error: (error) => {
         console.log(error);
       },
     });
 
   
+}
+
+
+onFileSelected(event: any) {
+  const file: File = event.target.files[0];
+  // Verifica si se seleccionó un archivo
+  if (file) {
+    // Guarda solo el nombre del archivo en ejercicioComponent
+    this.ejercicioComponent.imagen = file.name;
+  }
 }
   
   closeModal() {

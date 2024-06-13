@@ -1,16 +1,21 @@
 // src/app/pages/pierna/pierna-components/cards/cards.component.ts
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { Subscription } from 'rxjs';
 import { Ejercicio } from 'src/app/models/ejercicio.model';
 import { Usuario } from 'src/app/models/usuario.model';
+import { CardObserverService } from 'src/app/services/cardObserver/cardObserver.service';
 import { EjerciciosService } from 'src/app/services/ejercicios/ejercicios.service';
 
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html'
 })
-export class CardsComponent implements OnInit {
+export class CardsComponent implements OnInit, OnDestroy {
+  
+  data: any;
+  private subscription: Subscription;
 
   cards: Ejercicio[] = [];
   @Input() card: any;
@@ -22,6 +27,7 @@ export class CardsComponent implements OnInit {
   constructor(
     private ejerciciosService: EjerciciosService,
     private cookieService: CookieService,
+    private cardObservableService: CardObserverService
 
   ) { 
 
@@ -36,8 +42,16 @@ export class CardsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEjerciciosDni();
-
+    this.subscription = this.cardObservableService.data$.subscribe(data=>{
+      this.data = data // Información enviada por el componente padre al ser actuializado mediante el servicio de tipo observable
+      this.getEjerciciosDni()
+    })
   }
+
+  ngOnDestroy(): void {
+      
+  }
+  
   getEjerciciosDni(): void {
     if (this.usuario && this.usuario.dni) {
       this.ejerciciosService.getEjerciciosByDni(this.usuario.dni).subscribe({

@@ -1,4 +1,5 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { CardsComponent } from './ejercicios-personales-components/cards/cards.component';
 //declare var require: any;
 
 @Component({
@@ -7,6 +8,10 @@ import { Component, AfterViewInit } from '@angular/core';
 export class EjercicioGuardadoComponent implements AfterViewInit {
   
   isModalOpen = false;
+
+  @ViewChild(CardsComponent) cardsComponent!: CardsComponent;
+
+
   constructor() {
   }
 
@@ -19,5 +24,9 @@ export class EjercicioGuardadoComponent implements AfterViewInit {
 
   closeModal(): void {
     this.isModalOpen = false;
+  }
+
+  onEjercicioCreado(): void {
+    this.cardsComponent.getEjerciciosDni();
   }
 }

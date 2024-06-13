@@ -6,6 +6,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { CookieService } from 'ngx-cookie-service';
+import { Usuario } from 'src/app/models/usuario.model';
 
 
 @Component({
@@ -21,6 +23,18 @@ export class HeaderComponent {
   @Output() toggleCollapsed = new EventEmitter<void>();
 
   showFiller = false;
+  usuario?: Usuario;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    private cookieService: CookieService,
+
+  ) {
+
+    const usuarioJson = this.cookieService.get('usuario');
+        if (usuarioJson) {
+          this.usuario = JSON.parse(usuarioJson);
+        }
+
+  }
 }

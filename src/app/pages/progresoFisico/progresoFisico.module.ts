@@ -9,7 +9,6 @@ import { MaterialModule } from "src/app/material.module";
 import { PagesRoutes } from "../pages.routing.module";
 import { ProgresoFisicoComponent } from "./progresoFisico.component";
 import { CardsComponent } from "./progresoFisico-components/cards/cards.component";
-import { Search_barComponent } from "./progresoFisico-components/search_bar/search_bar.component";
 import { InsertarPesoComponent } from "./progresoFisico-components/insertarPeso/insertarPeso.component";
 import { CardPersonalComponent } from "./progresoFisico-components/cardPersonal/cardPersonal.component";
 import { ActualizarDatosComponent } from "./progresoFisico-components/actualizarDatos/actualizarDatos.component";
@@ -44,7 +43,6 @@ const routes: Routes = [
   declarations: [
     ProgresoFisicoComponent,
     CardsComponent,
-    Search_barComponent,
     SalesOverviewChartComponent,
     InsertarPesoComponent,
     CardPersonalComponent,

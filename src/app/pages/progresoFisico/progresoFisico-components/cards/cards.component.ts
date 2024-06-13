@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {card,cards} from './cards-data';
 import { RutinasService } from 'src/app/services/rutinas/rutinas.service';
 import { Rutina } from 'src/app/models/rutina.model';
 import { CookieService } from 'ngx-cookie-service';

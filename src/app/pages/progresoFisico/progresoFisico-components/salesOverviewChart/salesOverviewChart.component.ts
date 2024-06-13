@@ -4,6 +4,8 @@ import { EstadisticasUsuario } from 'src/app/models/estadisticasUsuario.model';
 import { EstadisticasUsuarioService } from 'src/app/services/estadisticasUsuario/estadisticasUsuario.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Usuario } from 'src/app/models/usuario.model';
+import { Subscription } from 'rxjs';
+import { CardObserverService } from 'src/app/services/cardObserver/cardObserver.service';
 
 @Component({
   selector: 'app-sales-overview-chart',
@@ -14,10 +16,13 @@ export class SalesOverviewChartComponent implements OnInit {
   salesOverviewChart: Partial<SalesOverviewChart> | any;
   estadisticas: EstadisticasUsuario[];
   usuario?: Usuario;
+  private subscription: Subscription;
 
   constructor(
     private estadisticasUsu: EstadisticasUsuarioService,
-    private cookieService: CookieService) { 
+    private cookieService: CookieService,
+    private cardObservableService: CardObserverService,
+  ) { 
 
     this.salesOverviewChart = salesOverviewChartData;
 
@@ -27,6 +32,7 @@ export class SalesOverviewChartComponent implements OnInit {
     }
   }
   getEstadisticas(): void {
+
     if (this.usuario && this.usuario.dni) {
       this.estadisticasUsu.getUltimasEstadisticas(this.usuario.dni).subscribe({
         next: (data) => {
@@ -42,24 +48,32 @@ export class SalesOverviewChartComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.getEstadisticas(); // Llamar a getEstadisticas() en el ngOnInit
+    this.getEstadisticas(); 
+
+    this.subscription = this.cardObservableService.data$.subscribe(estadisticas=>{
+          this.estadisticas = estadisticas // Información enviada por el componente padre al ser actuializado mediante el servicio de tipo observable
+          this.getEstadisticas()
+        })
   }
   
 updateChart(): void {
   if (this.estadisticas) {
     const masaMuscular = this.estadisticas.map(est => est.masaMuscular ?? 0);
     const grasa = this.estadisticas.map(est => est.grasa ?? 0);
-    // const fechas = this.estadisticas.map(est => {
-    //   if (est.fecha) {
-    //     const date = new Date(est.fecha);
-    //     // Formatear la fecha en el formato deseado
-    //     const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-    //     return formattedDate;
+    console.log("risas 1")
+        
+    /*const fechas = this.estadisticas.map(est => {
+      if (est.fecha) {
+        const date = new Date(est.fecha);
+        // Formatear la fecha en el formato deseado
+        const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+        console.log(formattedDate)
+        return formattedDate;
 
-    //   } else {
-    //     return 'Fecha desconocida';
-    //   }
-    // });
+      } else {
+        return 'Fecha desconocida';
+      }
+    }); */
 
     this.salesOverviewChart.series = [
       {
@@ -74,7 +88,7 @@ updateChart(): void {
       },
     ];
 
-    // this.salesOverviewChart.xaxis.categories = fechas;
+    this.salesOverviewChart.xaxis.categories =['05/06/2024','05/06/2024', '05/06/2024' ,'05/06/2024', '05/06/2024', '05/06/2024' ,'05/06/2024'];
   }
 }
 

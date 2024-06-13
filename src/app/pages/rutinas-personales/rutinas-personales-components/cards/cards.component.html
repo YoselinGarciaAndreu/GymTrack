@@ -4,41 +4,16 @@
 <div class="row">
   <div class="col-sm-6 col-lg-3" *ngFor="let card of cards; let i = index" >
 
-    <!-- TEST BUSQUEDA -->
-    <!-- <button
-    (click)="getEjerciciosDePiernaBusqueda()"
-     mat-mini-fab
-     color="primary"
-     class="icon-30 cart-btn"
-     matTooltip="Añadir a una rutina">
-     <i-tabler name="device-floppy" class="icon-16"></i-tabler>
-   </button> -->
-
-
     <mat-card class="cardWithShadow productcard overflow-hidden">
       <a routerLink="/widgets/cards">
         <img 
-          src="./assets/images/products/sentadilla2.jpg"
+          src="./assets/images/products/{{card.imagen}}"
           alt="imgSrc"
           class="object-cover w-full max-h-60"
           mat-card-image
         />
       </a>
       <mat-card-content class="p-b-24 p-t-12 position-relative">
-
-        
-        <!-- <button
-          mat-mini-fab
-          color="primary"
-          class="icon-30 cart-btn"
-          matTooltip="Añadir a una rutina">
-          <i-tabler name="device-floppy" class="icon-16"></i-tabler>
-        </button> -->
-        <!-- <app-ejercicio-add-rutina 
-        [isOpen]="isModalSaveOpenArray[i]" [nombre]="card.nombre" [descripcion]="card.descripcion" (close)="closeModalSave(i)">
-        </app-ejercicio-add-rutina> -->
-
-
 
         <mat-card-title class="mat-headline-2 f-s-16 m-b-4">
           {{card.nombre}}

@@ -1,6 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Usuario } from 'src/app/models/usuario.model';
+import { NotificationService } from 'src/app/services/NotificationService/notification.service';
+import { CardObserverService } from 'src/app/services/cardObserver/cardObserver.service';
 
 import { EjerciciosService } from 'src/app/services/ejercicios/ejercicios.service';
 import { EstadisticasUsuarioService } from 'src/app/services/estadisticasUsuario/estadisticasUsuario.service';
@@ -22,7 +24,8 @@ export class ActualizarDatosComponent {
   constructor(
     private estadisticasUsu: EstadisticasUsuarioService,
     private cookieService: CookieService,
-
+    private notificationService: NotificationService,
+    private cardObserverService: CardObserverService,
   ) {
 
     const usuarioJson = this.cookieService.get('usuario');
@@ -50,7 +53,9 @@ export class ActualizarDatosComponent {
 
 
       next: (data) => {
-        console.log("Estadisticas creadas");
+        this.notificationService.showSuccess('Estadisticas actualizadas');
+        this.cardObserverService.setData(null)
+
       },
       error: (error) => {
         console.log(error);

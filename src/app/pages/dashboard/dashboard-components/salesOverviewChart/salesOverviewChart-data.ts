@@ -42,7 +42,7 @@ export const salesOverviewChartData: SalesOverviewChart = {
     xaxis: {
         type: 'category',
         categories: [
-            1, 2, 3, 4, 5, 6, 7
+            "14/6/2024", "14/6/2024", "14/6/2024", "14/6/2024", "14/6/2024", "14/6/2024", "14/6/2024"
         ],
         labels: {
             style: { cssClass: 'grey--text lighten-2--text fill-color' },

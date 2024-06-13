@@ -5,6 +5,7 @@ export interface Ejercicio {
   descripcion?: string;
   nombre?: string;
   tipo?: string;
+  imagen?: string;
   likes?: number;
   disLikes?: number;
   dni?: Usuario; 

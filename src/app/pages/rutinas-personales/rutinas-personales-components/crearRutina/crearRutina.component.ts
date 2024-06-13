@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { CookieService } from "ngx-cookie-service";
 import { Rutina } from "src/app/models/rutina.model";
 import { Usuario } from "src/app/models/usuario.model";
+import { NotificationService } from "src/app/services/NotificationService/notification.service";
+import { CardObserverService } from "src/app/services/cardObserver/cardObserver.service";
 import { RutinasService } from "src/app/services/rutinas/rutinas.service";
 
 @Component({
@@ -19,6 +21,8 @@ export class CrearRutinaComponent {
   constructor(
     private rutinasService: RutinasService,
     private cookieService: CookieService,
+    private notificationService: NotificationService,
+    private cardObserverService: CardObserverService
   ) {
 
     const usuarioJson = this.cookieService.get('usuario');
@@ -40,13 +44,25 @@ export class CrearRutinaComponent {
       this.rutinasService.saveRutina(this.rutinaComponent).subscribe({
         next: (data) => {
           console.log(data);
-          console.log("Rutina creada");
-        },
+          this.notificationService.showSuccess('Rutina creada');
+          
+          // notify cards service
+          this.cardObserverService.setData(null)
+
+          },
         error: (error) => {
           console.log(error);
         },
       });
     
+  }
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      // Guarda solo el nombre del archivo en rutinaComponent
+      this.rutinaComponent.imagen = file.name;
+    }
   }
   closeModal() {
     this.close.emit();

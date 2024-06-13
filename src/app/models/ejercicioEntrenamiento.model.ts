@@ -12,7 +12,7 @@ export interface EjercicioEntrenamiento {
   id?: EjercicioEntrenamientoId;
   entrenamiento?: Entrenamiento;
   rutinas?: Rutina;
-  ejercicios?: Ejercicio;
+  ejercicio?: Ejercicio;
   primeraSerie? : number;
   segundaSerie? : number;
   terceraSerie? : number;

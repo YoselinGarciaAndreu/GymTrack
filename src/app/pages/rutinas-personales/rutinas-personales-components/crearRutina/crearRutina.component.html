@@ -12,35 +12,16 @@
           <label for="descripcion" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Descripción de la rutina:</label>
           <textarea id="descripcion" class="mt-1 block w-full p-2 border border-gray-300 rounded"  name="descripcion" [(ngModel)]="rutinaComponent.descripcion" required></textarea>
         </div>
-<!-- 
-        <div class="mb-4">
-          <label for="tipo" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Tipo de ejercicio:</label>
-          <select id="tipo" class="mt-1 block w-full p-2 border border-gray-300 rounded" name="tipo" [(ngModel)]="ejercicioComponent.tipo" required>
-            <option value="Pierna">Pierna</option>
-            <option value="Brazos">Brazos</option>
-            <option value="Torso">Torso</option>
-            <option value="Espalda">Espalda</option>
-            <option value="Cardio">Cardio</option>
-          </select>
-        </div> -->
 
         <div class="mb-4">
           <label for="imagen" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Subir imagen:</label>
-          <input id="imagen" type="file" class="mt-1 block w-full p-2 border border-gray-300 rounded" name="imagen" required>
+          <input id="imagen" type="file" class="mt-1 block w-full p-2 border border-gray-300 rounded" name="imagen" (change)="onFileSelected($event)" required>
         </div>
 
         <div class="flex justify-end px-6 py-4">
           <button type="button" class="bg-gray-500 text-white px-4 py-2 rounded" (click)="closeModal()">Cerrar</button>
           <button type="submit" class="bg-primary text-white px-4 py-2 rounded ml-2">Crear</button>
         </div>
-
-        <!-- <div>
-          {{rutinaComponent | json}}
-        </div>
-
-        <div>
-          {{usuario | json}}
-        </div> -->
 
       </form>
     </div>

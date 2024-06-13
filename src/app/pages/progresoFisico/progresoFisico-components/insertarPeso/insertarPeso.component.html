@@ -1,6 +1,6 @@
 <div class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50" *ngIf="isOpen">
   <!-- FONDO -->
-  <div class="bg-white p-10 dark:bg-gray-800 rounded-lg shadow-lg max-h-[80vh] w-[600px] overflow-y-auto">
+  <div class="bg-white p-10 dark:bg-gray-800 rounded-lg shadow-lg max-h-[80vh] w-[700px] overflow-y-auto">
     <div class="p-6">
       <div class="mb-4 border-b pb-2">
         <h3 class="text-2xl font-semibold text-primary dark:text-teal-300">Rellenar Pesos de las Series</h3>
@@ -26,7 +26,7 @@
         </div>
 
         <div class="flex justify-start">
-          <button type="button" (click)="saveEntrenamiento()" (click)="getEjerciciosByRutina()" (click)="getEjerciciosEntrenamientoByRutina()" class="bg-primary text-white px-4 py-2 mb-4 rounded">Insertar entrenamiento</button>
+          <button type="button" (click)="saveEntrenamiento()"  class="bg-primary text-white px-4 py-2 mb-4 rounded">Insertar entrenamiento</button>
         </div>
       </form>
     </div>
@@ -36,21 +36,25 @@
 
 
 
-  <div class="relative overflow-x-auto" *ngFor="let ejerEntre of ejerciciosEntrenamiento;">
+  <div class="relative overflow-x-auto">
     <p>Entrenamiento</p>
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr>
+          <th scope="col" class="px-6 py-3">Entrenamiento</th>
           <th scope="col" class="px-6 py-3">Ejercicio</th>
           <th scope="col" class="px-6 py-3">Serie 1</th>
           <th scope="col" class="px-6 py-3">Serie 2</th>
           <th scope="col" class="px-6 py-3">Serie 3</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody *ngFor="let ejerEntre of ejerciciosEntrenamiento;">
         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
           <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            {{ejerEntre.ejercicios}}
+            {{ejerEntre.entrenamiento?.entrenamientoID}}
+          </th>
+          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            {{ejerEntre.ejercicio?.nombre}}
           </th>
           <td class="px-6 py-4"> {{ejerEntre.primeraSerie}}</td>
           <td class="px-6 py-4">{{ejerEntre.segundaSerie}}</td>
